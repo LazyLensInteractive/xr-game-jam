@@ -1,0 +1,80 @@
+[gd_scene format=3 uid="uid://bujg5lmf3r773"]
+
+[ext_resource type="Texture2D" uid="uid://dk8o82rjww802" path="res://addons/godot-xr-tools/hands/textures/african_realistic_baseColor.png" id="1_7n6eb"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_yb1ct"]
+size = Vector3(1, 1, 3.3447876)
+
+[sub_resource type="BoxMesh" id="BoxMesh_ehuit"]
+size = Vector3(1, 1, 3.3447876)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_5mrt3"]
+size = Vector3(18, 0.2, 16)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_rwowx"]
+normal_enabled = true
+normal_scale = 0.68
+normal_texture = ExtResource("1_7n6eb")
+
+[sub_resource type="BoxMesh" id="BoxMesh_hu44a"]
+material = SubResource("StandardMaterial3D_rwowx")
+size = Vector3(18, 0.2, 16)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_0cr88"]
+size = Vector3(1, 3.1401367, 6.328369)
+
+[sub_resource type="BoxMesh" id="BoxMesh_4t6hg"]
+size = Vector3(1, 3.1401367, 6.328369)
+
+[node name="tutorial" type="Node3D" unique_id=707345943]
+
+[node name="Past scene" type="Node" parent="." unique_id=980817531]
+
+[node name="Present" type="Node" parent="." unique_id=1594902325]
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Present" unique_id=560485913 groups=["present_world"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.879444, -1.829575, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Present/StaticBody3D" unique_id=621709586]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.08554077)
+shape = SubResource("BoxShape3D_yb1ct")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Present/StaticBody3D" unique_id=938357500]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.06465232)
+mesh = SubResource("BoxMesh_ehuit")
+
+[node name="Label3D" type="Label3D" parent="Present/StaticBody3D" unique_id=2130124753]
+transform = Transform3D(0.0002283904, 0.008723547, 0.9999619, 0.026175957, 0.99961936, -0.008726535, -0.99965745, 0.026176954, -4.3709722e-08, 0.5528054, 0, 0)
+text = "X button to rewind time!
+(rewinding helps you solve puzzles)"
+
+[node name="persistant" type="Node" parent="." unique_id=356339778]
+
+[node name="StaticBody3D" type="StaticBody3D" parent="persistant" unique_id=745385146]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -2.5650206, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="persistant/StaticBody3D" unique_id=1964537408]
+shape = SubResource("BoxShape3D_5mrt3")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="persistant/StaticBody3D" unique_id=1409293672]
+mesh = SubResource("BoxMesh_hu44a")
+
+[node name="StaticBody3D2" type="StaticBody3D" parent="persistant" unique_id=1823370886]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.853978, -2.5650206, 4.9570904)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="persistant/StaticBody3D2" unique_id=2022108866]
+shape = SubResource("BoxShape3D_0cr88")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="persistant/StaticBody3D2" unique_id=261883467]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.07203436, 0, 0.0101418495)
+mesh = SubResource("BoxMesh_4t6hg")
+
+[node name="StaticBody3D3" type="StaticBody3D" parent="persistant" unique_id=1680955668]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.853978, -2.5650206, -4.7330647)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="persistant/StaticBody3D3" unique_id=694491437]
+shape = SubResource("BoxShape3D_0cr88")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="persistant/StaticBody3D3" unique_id=477639613]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.07203436, 0, 0.0101418495)
+mesh = SubResource("BoxMesh_4t6hg")

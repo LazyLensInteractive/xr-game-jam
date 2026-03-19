@@ -1,0 +1,458 @@
+[gd_scene format=3 uid="uid://cbrm8qmu1nvwr"]
+
+[ext_resource type="Script" uid="uid://bqb3cy0ekk685" path="res://addons/godot-xr-tools/objects/climbable.gd" id="1_lokdc"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_ft6ep"]
+size = Vector3(2, 5.302581, 2.21)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_1xnqs"]
+albedo_color = Color(0.96232456, 0.8367416, 0.81478316, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_1xnqs"]
+material = SubResource("StandardMaterial3D_1xnqs")
+size = Vector3(2, 40, 2)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_lb078"]
+size = Vector3(2, 39.387207, 5)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_lokdc"]
+albedo_color = Color(0.96232456, 0.8367416, 0.81478316, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_utrgi"]
+material = SubResource("StandardMaterial3D_lokdc")
+size = Vector3(2, 40, 5)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_meop2"]
+size = Vector3(2, 39.810303, 5)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_lokdc"]
+size = Vector3(2, 38.955017, 5)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_utrgi"]
+size = Vector3(2, 37.898926, 5)
+
+[node name="rooftops2" type="Node3D" unique_id=540570613]
+
+[node name="StaticBody3D" type="StaticBody3D" parent="." unique_id=1742990032 groups=["present_world"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 22.482374, 1, -6)
+
+[node name="Climbable" type="StaticBody3D" parent="StaticBody3D" unique_id=137496940]
+collision_layer = 262145
+collision_mask = 0
+script = ExtResource("1_lokdc")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D/Climbable" unique_id=1815266644]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -2, 0)
+shape = SubResource("BoxShape3D_ft6ep")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="StaticBody3D" unique_id=1547148571]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -20, 0)
+mesh = SubResource("BoxMesh_1xnqs")
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="StaticBody3D" unique_id=756612845]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -2, 0)
+shape = SubResource("BoxShape3D_ft6ep")
+
+[node name="StaticBody3D2" type="StaticBody3D" parent="." unique_id=731061816 groups=["present_world"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 26.332695, 0, 9.5857)
+
+[node name="Climbable" type="StaticBody3D" parent="StaticBody3D2" unique_id=1974069196]
+collision_layer = 262145
+collision_mask = 0
+script = ExtResource("1_lokdc")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D2/Climbable" unique_id=994598924]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -2.1669152, 0)
+shape = SubResource("BoxShape3D_ft6ep")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="StaticBody3D2" unique_id=567120292]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -20, 0)
+mesh = SubResource("BoxMesh_1xnqs")
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="StaticBody3D2" unique_id=17131707]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -2.811795, 0)
+shape = SubResource("BoxShape3D_ft6ep")
+
+[node name="StaticBody3D3" type="StaticBody3D" parent="." unique_id=1133874232 groups=["present_world"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.49337, 0, -2.263441)
+
+[node name="Climbable" type="StaticBody3D" parent="StaticBody3D3" unique_id=1833050784]
+collision_layer = 262145
+collision_mask = 0
+script = ExtResource("1_lokdc")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D3/Climbable" unique_id=1017887915]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -2, 0)
+shape = SubResource("BoxShape3D_ft6ep")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="StaticBody3D3" unique_id=1105770831]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -20, 0)
+mesh = SubResource("BoxMesh_1xnqs")
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="StaticBody3D3" unique_id=406435240]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -2, 0)
+shape = SubResource("BoxShape3D_ft6ep")
+
+[node name="StaticBody3D4" type="StaticBody3D" parent="." unique_id=437811425 groups=["present_world"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 17.917812, 0, -7.6895213)
+
+[node name="Climbable" type="StaticBody3D" parent="StaticBody3D4" unique_id=2092842246]
+collision_layer = 262145
+collision_mask = 0
+script = ExtResource("1_lokdc")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D4/Climbable" unique_id=417063231]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -2, 0)
+shape = SubResource("BoxShape3D_ft6ep")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="StaticBody3D4" unique_id=1146925440]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -20, 0)
+mesh = SubResource("BoxMesh_1xnqs")
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="StaticBody3D4" unique_id=1415087566]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -2, 0)
+shape = SubResource("BoxShape3D_ft6ep")
+
+[node name="StaticBody3D5" type="StaticBody3D" parent="." unique_id=1424278476 groups=["present_world"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14.938334, 0, -9.193356)
+
+[node name="Climbable" type="StaticBody3D" parent="StaticBody3D5" unique_id=451661761]
+collision_layer = 262145
+collision_mask = 0
+script = ExtResource("1_lokdc")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D5/Climbable" unique_id=1498513417]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -2, 0)
+shape = SubResource("BoxShape3D_ft6ep")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="StaticBody3D5" unique_id=369106570]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -20, 0)
+mesh = SubResource("BoxMesh_1xnqs")
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="StaticBody3D5" unique_id=1628974293]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -2, 0)
+shape = SubResource("BoxShape3D_ft6ep")
+
+[node name="StaticBody3D6" type="StaticBody3D" parent="." unique_id=1931563716 groups=["present_world"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11, 0, -7.68038)
+
+[node name="Climbable" type="StaticBody3D" parent="StaticBody3D6" unique_id=327933755]
+collision_layer = 262145
+collision_mask = 0
+script = ExtResource("1_lokdc")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D6/Climbable" unique_id=1999821964]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -2, 0)
+shape = SubResource("BoxShape3D_ft6ep")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="StaticBody3D6" unique_id=1408929155]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -20, 0)
+mesh = SubResource("BoxMesh_1xnqs")
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="StaticBody3D6" unique_id=1226280165]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -2, 0)
+shape = SubResource("BoxShape3D_ft6ep")
+
+[node name="StaticBody3D7" type="StaticBody3D" parent="." unique_id=849191108 groups=["present_world"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8, 0, -4.1187506)
+
+[node name="Climbable" type="StaticBody3D" parent="StaticBody3D7" unique_id=1700865906]
+collision_layer = 262145
+collision_mask = 0
+script = ExtResource("1_lokdc")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D7/Climbable" unique_id=580751800]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -2, 0)
+shape = SubResource("BoxShape3D_ft6ep")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="StaticBody3D7" unique_id=1401689767]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -20, 0)
+mesh = SubResource("BoxMesh_1xnqs")
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="StaticBody3D7" unique_id=756947270]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -2, 0)
+shape = SubResource("BoxShape3D_ft6ep")
+
+[node name="StaticBody3D8" type="StaticBody3D" parent="." unique_id=1336537827 groups=["present_world"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.929825, 0, 0.5809784)
+
+[node name="Climbable" type="StaticBody3D" parent="StaticBody3D8" unique_id=1764618426]
+collision_layer = 262145
+collision_mask = 0
+script = ExtResource("1_lokdc")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D8/Climbable" unique_id=715632012]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -2, 0)
+shape = SubResource("BoxShape3D_ft6ep")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="StaticBody3D8" unique_id=1542738071]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -20, 0)
+mesh = SubResource("BoxMesh_1xnqs")
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="StaticBody3D8" unique_id=1482272235]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -2, 0)
+shape = SubResource("BoxShape3D_ft6ep")
+
+[node name="StaticBody3D9" type="StaticBody3D" parent="." unique_id=1451409861 groups=["present_world"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.7231493, 0, 10)
+
+[node name="Climbable" type="StaticBody3D" parent="StaticBody3D9" unique_id=1919676602]
+collision_layer = 262145
+collision_mask = 0
+script = ExtResource("1_lokdc")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D9/Climbable" unique_id=1551154792]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -2, 0)
+shape = SubResource("BoxShape3D_ft6ep")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="StaticBody3D9" unique_id=218146466]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -20, 0)
+mesh = SubResource("BoxMesh_1xnqs")
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="StaticBody3D9" unique_id=1225994218]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -2, 0)
+shape = SubResource("BoxShape3D_ft6ep")
+
+[node name="StaticBody3D10" type="StaticBody3D" parent="." unique_id=1340767362 groups=["present_world"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.21638, 0, 14.64926)
+
+[node name="Climbable" type="StaticBody3D" parent="StaticBody3D10" unique_id=900760093]
+collision_layer = 262145
+collision_mask = 0
+script = ExtResource("1_lokdc")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D10/Climbable" unique_id=1374599678]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -2, 0)
+shape = SubResource("BoxShape3D_ft6ep")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="StaticBody3D10" unique_id=1416647474]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -20, 0)
+mesh = SubResource("BoxMesh_1xnqs")
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="StaticBody3D10" unique_id=652834902]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -2, 0)
+shape = SubResource("BoxShape3D_ft6ep")
+
+[node name="StaticBody3D11" type="StaticBody3D" parent="." unique_id=1437830562 groups=["present_world"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.70256805, 0, 16.896519)
+
+[node name="Climbable" type="StaticBody3D" parent="StaticBody3D11" unique_id=642363374]
+collision_layer = 262145
+collision_mask = 0
+script = ExtResource("1_lokdc")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D11/Climbable" unique_id=1346516597]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -2, 0)
+shape = SubResource("BoxShape3D_ft6ep")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="StaticBody3D11" unique_id=208078807]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -20, 0)
+mesh = SubResource("BoxMesh_1xnqs")
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="StaticBody3D11" unique_id=1571911072]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -2, 0)
+shape = SubResource("BoxShape3D_ft6ep")
+
+[node name="StaticBody3D12" type="StaticBody3D" parent="." unique_id=2057636306 groups=["present_world"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 30.560596, -4.215966, -14.93825)
+
+[node name="Climbable" type="StaticBody3D" parent="StaticBody3D12" unique_id=320398280]
+collision_layer = 262145
+collision_mask = 0
+script = ExtResource("1_lokdc")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D12/Climbable" unique_id=1694238843]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -2, 0)
+shape = SubResource("BoxShape3D_ft6ep")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="StaticBody3D12" unique_id=699305875]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -20, 0)
+mesh = SubResource("BoxMesh_1xnqs")
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="StaticBody3D12" unique_id=76278250]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -2, 0)
+shape = SubResource("BoxShape3D_ft6ep")
+
+[node name="StaticBody3D13" type="StaticBody3D" parent="." unique_id=1018460879 groups=["present_world"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 34, 0, -11.457249)
+
+[node name="Climbable" type="StaticBody3D" parent="StaticBody3D13" unique_id=1595542994]
+collision_layer = 262145
+collision_mask = 0
+script = ExtResource("1_lokdc")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D13/Climbable" unique_id=1707087676]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -2, 0)
+shape = SubResource("BoxShape3D_ft6ep")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="StaticBody3D13" unique_id=1726481608]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -20, 0)
+mesh = SubResource("BoxMesh_1xnqs")
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="StaticBody3D13" unique_id=250891010]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -2, 0)
+shape = SubResource("BoxShape3D_ft6ep")
+
+[node name="StaticBody3D14" type="StaticBody3D" parent="." unique_id=448369972 groups=["present_world"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 33, 0, -6.323718)
+
+[node name="Climbable" type="StaticBody3D" parent="StaticBody3D14" unique_id=1741890568]
+collision_layer = 262145
+collision_mask = 0
+script = ExtResource("1_lokdc")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D14/Climbable" unique_id=2134058628]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -2, 0)
+shape = SubResource("BoxShape3D_ft6ep")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="StaticBody3D14" unique_id=733449267]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -20, 0)
+mesh = SubResource("BoxMesh_1xnqs")
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="StaticBody3D14" unique_id=1259887357]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -2, 0)
+shape = SubResource("BoxShape3D_ft6ep")
+
+[node name="StaticBody3D15" type="StaticBody3D" parent="." unique_id=1188125751 groups=["present_world"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 32, 0, 10.850788)
+
+[node name="Climbable" type="StaticBody3D" parent="StaticBody3D15" unique_id=814482512]
+collision_layer = 262145
+collision_mask = 0
+script = ExtResource("1_lokdc")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D15/Climbable" unique_id=390778147]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -2, 0)
+shape = SubResource("BoxShape3D_ft6ep")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="StaticBody3D15" unique_id=2122469656]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -20, 0)
+mesh = SubResource("BoxMesh_1xnqs")
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="StaticBody3D15" unique_id=540029003]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -2, 0)
+shape = SubResource("BoxShape3D_ft6ep")
+
+[node name="StaticBody3D16" type="StaticBody3D" parent="." unique_id=1301659054 groups=["present_world"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -18.525011, 0, 15.767012)
+
+[node name="Climbable" type="StaticBody3D" parent="StaticBody3D16" unique_id=2006311239]
+collision_layer = 262145
+collision_mask = 0
+script = ExtResource("1_lokdc")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D16/Climbable" unique_id=357361507]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -2, 0)
+shape = SubResource("BoxShape3D_ft6ep")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="StaticBody3D16" unique_id=365725803]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -20, 0)
+mesh = SubResource("BoxMesh_1xnqs")
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="StaticBody3D16" unique_id=1338823217]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -2, 0)
+shape = SubResource("BoxShape3D_ft6ep")
+
+[node name="StaticBody3D17" type="StaticBody3D" parent="." unique_id=20905423 groups=["present_world"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -17.607306, 0, 9)
+
+[node name="Climbable" type="StaticBody3D" parent="StaticBody3D17" unique_id=430377574]
+collision_layer = 262145
+collision_mask = 0
+script = ExtResource("1_lokdc")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D17/Climbable" unique_id=1569662525]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -2, 0)
+shape = SubResource("BoxShape3D_ft6ep")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="StaticBody3D17" unique_id=1708194368]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -20, 0)
+mesh = SubResource("BoxMesh_1xnqs")
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="StaticBody3D17" unique_id=619716642]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -2, 0)
+shape = SubResource("BoxShape3D_ft6ep")
+
+[node name="StaticBody3D18" type="StaticBody3D" parent="." unique_id=674635143 groups=["present_world"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -17, 0, -2.279439)
+
+[node name="Climbable" type="StaticBody3D" parent="StaticBody3D18" unique_id=1214081591]
+collision_layer = 262145
+collision_mask = 0
+script = ExtResource("1_lokdc")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D18/Climbable" unique_id=357280871]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -2, 0)
+shape = SubResource("BoxShape3D_ft6ep")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="StaticBody3D18" unique_id=2112587944]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -20, 0)
+mesh = SubResource("BoxMesh_1xnqs")
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="StaticBody3D18" unique_id=730305928]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -2, 0)
+shape = SubResource("BoxShape3D_ft6ep")
+
+[node name="StaticBody3D19" type="StaticBody3D" parent="." unique_id=689553987 groups=["present_world"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -14, 0, -7.7933593)
+
+[node name="Climbable" type="StaticBody3D" parent="StaticBody3D19" unique_id=268238437]
+collision_layer = 262145
+collision_mask = 0
+script = ExtResource("1_lokdc")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D19/Climbable" unique_id=535977882]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -2, 0)
+shape = SubResource("BoxShape3D_ft6ep")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="StaticBody3D19" unique_id=1563260773]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -20, 0)
+mesh = SubResource("BoxMesh_1xnqs")
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="StaticBody3D19" unique_id=1551692450]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -2, 0)
+shape = SubResource("BoxShape3D_ft6ep")
+
+[node name="long wall" type="StaticBody3D" parent="." unique_id=657616378 groups=["present_world"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 28.482374, 10.180881, 4)
+collision_layer = 8
+collision_mask = 8
+
+[node name="Climbable" type="StaticBody3D" parent="long wall" unique_id=687206301]
+collision_layer = 262145
+collision_mask = 0
+script = ExtResource("1_lokdc")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="long wall/Climbable" unique_id=437494477]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -19.693604, 0)
+shape = SubResource("BoxShape3D_lb078")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="long wall" unique_id=227604444]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -20, 0)
+mesh = SubResource("BoxMesh_utrgi")
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="long wall" unique_id=503408343]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -19.905151, 0)
+shape = SubResource("BoxShape3D_meop2")
+
+[node name="long wall2" type="StaticBody3D" parent="." unique_id=515047186 groups=["present_world"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 23.482374, 8.322904, -1)
+collision_layer = 8
+collision_mask = 8
+
+[node name="Climbable" type="StaticBody3D" parent="long wall2" unique_id=2025731394]
+collision_layer = 262145
+collision_mask = 0
+script = ExtResource("1_lokdc")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="long wall2/Climbable" unique_id=1093991332]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -19.473724, 0)
+shape = SubResource("BoxShape3D_lokdc")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="long wall2" unique_id=1982968548]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -20, 0)
+mesh = SubResource("BoxMesh_utrgi")
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="long wall2" unique_id=144153854]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -18.957672, 0)
+shape = SubResource("BoxShape3D_utrgi")
