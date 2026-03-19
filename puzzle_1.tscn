@@ -61,6 +61,8 @@ script = ExtResource("1_8ej03")
 [node name="Persist" type="Node" parent="." unique_id=2088904013]
 
 [node name="StaticBody3D" type="StaticBody3D" parent="Persist" unique_id=1844997293]
+collision_layer = 8
+collision_mask = 8
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Persist/StaticBody3D" unique_id=676002288]
 transform = Transform3D(1.155, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
@@ -72,6 +74,8 @@ mesh = SubResource("BoxMesh_8ej03")
 
 [node name="StaticBody3D3" type="StaticBody3D" parent="Persist" unique_id=352109068]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.9601903, 0)
+collision_layer = 8
+collision_mask = 8
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Persist/StaticBody3D3" unique_id=144075719]
 transform = Transform3D(1.155, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
@@ -83,6 +87,8 @@ mesh = SubResource("BoxMesh_8ej03")
 
 [node name="StaticBody3D4" type="StaticBody3D" parent="Persist" unique_id=1218250479]
 transform = Transform3D(1, 0, 0, 0, 0.058801167, -0.99826974, 0, 0.99826974, 0.058801167, 0, 2.1428995, 5.0756364)
+collision_layer = 8
+collision_mask = 8
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Persist/StaticBody3D4" unique_id=2064119203]
 transform = Transform3D(1.125, 0, 0, 0, 1, 0, 0, 0, 1, 0.0121154785, 0, 0)
@@ -94,6 +100,8 @@ mesh = SubResource("BoxMesh_fa0gn")
 
 [node name="StaticBody3D5" type="StaticBody3D" parent="Persist" unique_id=1968444789]
 transform = Transform3D(1, 0, 0, 0, 0.058801167, -0.99826974, 0, 0.99826974, 0.058801167, 0, 2.1428995, -5.2256713)
+collision_layer = 8
+collision_mask = 8
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Persist/StaticBody3D5" unique_id=383643453]
 transform = Transform3D(1.155, 0, 0, 0, 1, 0, 0, 0, 1, 0.0121154785, 0, 0)
@@ -105,6 +113,8 @@ mesh = SubResource("BoxMesh_fa0gn")
 
 [node name="StaticBody3D6" type="StaticBody3D" parent="Persist" unique_id=683912911]
 transform = Transform3D(-4.371139e-08, 1, -4.371139e-08, 0, -4.371139e-08, -1, -1, -4.371139e-08, 1.9106855e-15, -11.115933, 2.1428995, -1.4943213)
+collision_layer = 8
+collision_mask = 8
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Persist/StaticBody3D6" unique_id=428633064]
 transform = Transform3D(1.155, 0, 0, 0, 1, 0, 0, 0, 1, 0.0121154785, 0, 0)
@@ -116,6 +126,8 @@ mesh = SubResource("BoxMesh_fa0gn")
 
 [node name="StaticBody3D7" type="StaticBody3D" parent="Persist" unique_id=1355571782]
 transform = Transform3D(-4.371139e-08, 1, -4.371139e-08, 0, -4.371139e-08, -1, -1, -4.371139e-08, 1.9106855e-15, 11.626526, 2.1428995, -10.663328)
+collision_layer = 8
+collision_mask = 8
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Persist/StaticBody3D7" unique_id=272496324]
 transform = Transform3D(1.155, 0, 0, 0, 1, 0, 0, 0, 1, 0.0121154785, 0, 0)

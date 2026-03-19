@@ -130,11 +130,8 @@ mesh = SubResource("QuadMesh_efxa6")
 surface_material_override/0 = SubResource("ShaderMaterial_dg77c")
 
 [node name="PlayerBody" parent="XROrigin3D" unique_id=1752026817 instance=ExtResource("1_lquwl")]
-floor_stop_on_slope = false
 floor_block_on_wall = false
-max_head_distance = 0.39
 head_behavior_mode = 0
-ground_control = 1
 
 [node name="MovementJog" parent="XROrigin3D/PlayerBody" unique_id=65053063 instance=ExtResource("2_272bh")]
 slow_speed = 1.8
@@ -143,6 +140,9 @@ fast_speed = 5.0
 [node name="MovementWallWalk" parent="XROrigin3D/PlayerBody" unique_id=102516420 instance=ExtResource("6_yaehf")]
 
 [node name="MovementSprint" parent="XROrigin3D/PlayerBody" unique_id=2012743987 instance=ExtResource("7_074og")]
+
+[node name="Audio_holder" type="AudioStreamPlayer3D" parent="XROrigin3D/PlayerBody" unique_id=1351855725]
+volume_db = 1.725
 
 [node name="XRController3D" type="XRController3D" parent="XROrigin3D" unique_id=696964158]
 tracker = &"left_hand"
@@ -211,7 +211,7 @@ shape = SubResource("SphereShape3D_k3gfm")
 
 [node name="MovementClimb" parent="XROrigin3D/XRController3D2" unique_id=406937612 instance=ExtResource("9_w48qg")]
 
-[node name="GameMananger" type="Node" parent="." unique_id=898114687 node_paths=PackedStringArray("rewind_text", "laser", "lasercollision", "player", "shader", "level_holder", "grapple_pos", "end_pickable")]
+[node name="GameMananger" type="Node" parent="." unique_id=898114687 node_paths=PackedStringArray("rewind_text", "laser", "lasercollision", "player", "shader", "level_holder", "grapple_pos", "end_pickable", "audio_holder")]
 script = ExtResource("7_dg77c")
 rewind_text = NodePath("../XROrigin3D/XRController3D2/RightHand/Label3D")
 laser = NodePath("../XROrigin3D/XRController3D2/FunctionPointer")
@@ -221,6 +221,7 @@ shader = NodePath("../XROrigin3D/XRCamera3D/shader")
 level_holder = NodePath("../Level holder")
 grapple_pos = NodePath("../grapple point")
 end_pickable = NodePath("../PickableObject")
+audio_holder = NodePath("../XROrigin3D/PlayerBody/Audio_holder")
 
 [node name="grapple point" type="StaticBody3D" parent="." unique_id=943915966 groups=["grapple_points"]]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 22.067755, 2.3536928, -16.630997)

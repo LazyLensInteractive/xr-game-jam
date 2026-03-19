@@ -2,18 +2,11 @@
 
 [ext_resource type="Script" uid="uid://bqb3cy0ekk685" path="res://addons/godot-xr-tools/objects/climbable.gd" id="1_te6qp"]
 
-[sub_resource type="BoxShape3D" id="BoxShape3D_ft6ep"]
-size = Vector3(2, 4, 2)
+[sub_resource type="BoxShape3D" id="BoxShape3D_1xnqs"]
+size = Vector3(2, 22, 5)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_1xnqs"]
 albedo_color = Color(0.96232456, 0.8367416, 0.81478316, 1)
-
-[sub_resource type="BoxMesh" id="BoxMesh_1xnqs"]
-material = SubResource("StandardMaterial3D_1xnqs")
-size = Vector3(2, 40, 2)
-
-[sub_resource type="BoxShape3D" id="BoxShape3D_1xnqs"]
-size = Vector3(2, 22, 5)
 
 [sub_resource type="BoxMesh" id="BoxMesh_te6qp"]
 material = SubResource("StandardMaterial3D_1xnqs")
@@ -22,12 +15,43 @@ size = Vector3(2, 40, 5)
 [sub_resource type="BoxShape3D" id="BoxShape3D_j0kh8"]
 size = Vector3(2, 22, 5)
 
+[sub_resource type="BoxShape3D" id="BoxShape3D_ft6ep"]
+size = Vector3(2, 4, 2)
+
+[sub_resource type="BoxMesh" id="BoxMesh_1xnqs"]
+material = SubResource("StandardMaterial3D_1xnqs")
+size = Vector3(2, 40, 2)
+
 [node name="rooftops" type="Node3D" unique_id=896279738]
 
 [node name="buildings" type="Node" parent="." unique_id=495707982]
 
+[node name="long wall" type="StaticBody3D" parent="buildings" unique_id=996550618 groups=["present_world"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.5210967, 10.071693, -6.1741037)
+collision_layer = 8
+collision_mask = 8
+
+[node name="Climbable" type="StaticBody3D" parent="buildings/long wall" unique_id=268251215]
+collision_layer = 262145
+collision_mask = 0
+script = ExtResource("1_te6qp")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="buildings/long wall/Climbable" unique_id=267037373]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -11, 0)
+shape = SubResource("BoxShape3D_1xnqs")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="buildings/long wall" unique_id=1329506316]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -20, 0)
+mesh = SubResource("BoxMesh_te6qp")
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="buildings/long wall" unique_id=614200969]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -11, 0)
+shape = SubResource("BoxShape3D_j0kh8")
+
 [node name="StaticBody3D" type="StaticBody3D" parent="buildings" unique_id=1898358403 groups=["present_world"]]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 6, 0)
+collision_layer = 8
+collision_mask = 8
 
 [node name="Climbable" type="StaticBody3D" parent="buildings/StaticBody3D" unique_id=562964853]
 collision_layer = 262145
@@ -48,6 +72,8 @@ shape = SubResource("BoxShape3D_ft6ep")
 
 [node name="StaticBody3D2" type="StaticBody3D" parent="buildings" unique_id=1357511399 groups=["present_world"]]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.91021, 6, -9.7915535)
+collision_layer = 8
+collision_mask = 8
 
 [node name="Climbable" type="StaticBody3D" parent="buildings/StaticBody3D2" unique_id=1376605803]
 collision_layer = 262145
@@ -66,30 +92,10 @@ mesh = SubResource("BoxMesh_1xnqs")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -2, 0)
 shape = SubResource("BoxShape3D_ft6ep")
 
-[node name="long wall" type="StaticBody3D" parent="buildings/StaticBody3D2" unique_id=996550618 groups=["present_world"]]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.431307, 4.0716934, 3.6174498)
-collision_layer = 8
-collision_mask = 8
-
-[node name="Climbable" type="StaticBody3D" parent="buildings/StaticBody3D2/long wall" unique_id=268251215]
-collision_layer = 262145
-collision_mask = 0
-script = ExtResource("1_te6qp")
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="buildings/StaticBody3D2/long wall/Climbable" unique_id=267037373]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -11, 0)
-shape = SubResource("BoxShape3D_1xnqs")
-
-[node name="MeshInstance3D" type="MeshInstance3D" parent="buildings/StaticBody3D2/long wall" unique_id=1329506316]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -20, 0)
-mesh = SubResource("BoxMesh_te6qp")
-
-[node name="CollisionShape3D2" type="CollisionShape3D" parent="buildings/StaticBody3D2/long wall" unique_id=614200969]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -11, 0)
-shape = SubResource("BoxShape3D_j0kh8")
-
 [node name="StaticBody3D3" type="StaticBody3D" parent="buildings" unique_id=466378438 groups=["present_world"]]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.983036, 10.613898, -13.897776)
+collision_layer = 8
+collision_mask = 8
 
 [node name="Climbable" type="StaticBody3D" parent="buildings/StaticBody3D3" unique_id=1848058170]
 collision_layer = 262145
@@ -116,6 +122,8 @@ text = "Right Trigger to zip!"
 
 [node name="StaticBody3D5" type="StaticBody3D" parent="buildings" unique_id=1511668800 groups=["present_world"]]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 22.107422, 6, -16.39162)
+collision_layer = 8
+collision_mask = 8
 
 [node name="Climbable" type="StaticBody3D" parent="buildings/StaticBody3D5" unique_id=1895806966]
 collision_layer = 262145
@@ -136,6 +144,8 @@ shape = SubResource("BoxShape3D_ft6ep")
 
 [node name="StaticBody3D7" type="StaticBody3D" parent="buildings" unique_id=900147179 groups=["past_world"]]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 22.107422, 6, -16.39162)
+collision_layer = 8
+collision_mask = 8
 
 [node name="Climbable" type="StaticBody3D" parent="buildings/StaticBody3D7" unique_id=374347655]
 collision_layer = 262145
@@ -158,6 +168,8 @@ shape = SubResource("BoxShape3D_ft6ep")
 
 [node name="StaticBody3D6" type="StaticBody3D" parent="buildings/past world" unique_id=297136825 groups=["past_world"]]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 30.560596, 0.7840338, -14.93825)
+collision_layer = 8
+collision_mask = 8
 
 [node name="Climbable" type="StaticBody3D" parent="buildings/past world/StaticBody3D6" unique_id=1527967024]
 collision_layer = 262145

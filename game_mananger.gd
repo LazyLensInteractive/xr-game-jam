@@ -6,11 +6,12 @@ extends Node
 @export var laser: XRToolsFunctionPointer
 @export var lasercollision: CollisionShape3D
 @export var player: XROrigin3D
-@export var distance_to_auto_stop = 2
+@export var distance_to_auto_stop = 2 #how close you have to be to a grapple point before motion is killed and you stop grapeling
 @export var shader: MeshInstance3D
 @export var level_holder: Node
 @export var grapple_pos: StaticBody3D
-@export var end_pickable: XRToolsPickable #the mesh of the end level object used to alter its material for an effect
+@export var end_pickable: XRToolsPickable #the mesh of the end level object used to alter its material for an effect (moved to node3d script cause it breaks here)
+@export var audio_holder: AudioStreamPlayer3D
 var total_rewinds_used = 0
 var grapple_equiped = false
 var grapple_button = false #checks if grapple is deployed
@@ -115,25 +116,28 @@ func _on_area_3d_body_exited(body: Node3D) -> void:
 		current_target = null
 		
 var levels = {
-	1: {
+	2: {
 		"path": "res://puzzle_1.tscn",
 		"grapple_pos": Vector3(32, 1, 13),
 		"end_pos": Vector3(12.667, 0.853, 3.332),
-		"player_pos": Vector3(2.5, 1.45, 3.557)
+		"player_pos": Vector3(2.5, 1.45, 3.557),
+		"music": "res://music/examplesound.wav"
 	},
 
-	2: {
-		"path": "res://rooftops_2.tscn",
+	1: {
+		"path": "res://long hallway.tscn",
 		"grapple_pos": Vector3(32, 2, 10.85),
 		"end_pos": Vector3(0.7, 2, 16.8),
-		"player_pos": Vector3(2.5, 1.45, 3.557)
+		"player_pos": Vector3(21.5, 1.45, 0),
+		"music": "res://music/examplesound.wav"
 	},
 
 	4: {
 		"path": "res://rooftops_2.tscn",
 		"grapple_pos": Vector3(1, 1, 1),
 		"end_pos": Vector3(2, 2, 2),
-		"player_pos": Vector3(2.5, 1.45, 3.557)
+		"player_pos": Vector3(2.5, 1.45, 3.557),
+		"music": "res://music/examplesound.wav"
 	}
 }
 func load_level(id):
@@ -162,6 +166,8 @@ func load_level(id):
 	await get_tree().process_frame
 	_set_group_active("past_world", false)
 	_set_group_active("present_world", true)
+	audio_holder.stream = load(data["music"])
+	audio_holder.play()
 	shader.visible = false
 	is_loading_level = false
 	end_obj.enabled = true
