@@ -178,7 +178,6 @@ shape = SubResource("BoxShape3D_nyvao")
 [node name="past" type="Node" parent="." unique_id=1200285774]
 
 [node name="StaticBody3D" type="StaticBody3D" parent="past" unique_id=202120417 groups=["past_world"]]
-visible = false
 
 [node name="MeshInstance3D2" type="MeshInstance3D" parent="past/StaticBody3D" unique_id=613290400]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 8, 1)

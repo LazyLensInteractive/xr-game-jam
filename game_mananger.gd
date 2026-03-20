@@ -12,6 +12,9 @@ extends Node
 @export var grapple_pos: StaticBody3D
 @export var end_pickable: XRToolsPickable #the mesh of the end level object used to alter its material for an effect (moved to node3d script cause it breaks here)
 @export var audio_holder: AudioStreamPlayer3D
+@export var jump_control: XRToolsMovementJump
+@export var worldenv: WorldEnvironment
+@export var sunlight: DirectionalLight3D
 var total_rewinds_used = 0
 var grapple_equiped = false
 var grapple_button = false #checks if grapple is deployed
@@ -24,6 +27,8 @@ var speed = 20
 var current_level_id = 0
 var is_loading_level = false
 var end_obj = null
+var can_jump = true
+
 func _ready() -> void:
 	_set_group_active("past_world", false)
 	_set_group_active("present_world", true)
@@ -116,28 +121,32 @@ func _on_area_3d_body_exited(body: Node3D) -> void:
 		current_target = null
 		
 var levels = {
-	2: {
-		"path": "res://puzzle_1.tscn",
+	1: {
+		"path": "res://puzzle_main.tscn",
 		"grapple_pos": Vector3(32, 1, 13),
 		"end_pos": Vector3(12.667, 0.853, 3.332),
-		"player_pos": Vector3(2.5, 1.45, 3.557),
-		"music": "res://music/examplesound.wav"
+		"player_pos": Vector3(-17.52, 0, 16.772),
+		"music": "res://music/examplesound.wav",
+		"can_jump": false,
+		"env": "light"
 	},
 
-	1: {
+	2: {
 		"path": "res://long hallway.tscn",
 		"grapple_pos": Vector3(32, 2, 10.85),
 		"end_pos": Vector3(0.7, 2, 16.8),
-		"player_pos": Vector3(21.5, 1.45, 0),
-		"music": "res://music/examplesound.wav"
+		"player_pos": Vector3(21.5, 0, 0),
+		"music": "res://music/examplesound.wav",
+		"can_jump": true
 	},
 
 	4: {
 		"path": "res://rooftops_2.tscn",
 		"grapple_pos": Vector3(1, 1, 1),
 		"end_pos": Vector3(2, 2, 2),
-		"player_pos": Vector3(2.5, 1.45, 3.557),
-		"music": "res://music/examplesound.wav"
+		"player_pos": Vector3(2.5, 0, 3.557),
+		"music": "res://music/examplesound.wav",
+		"can_jump": true
 	}
 }
 func load_level(id):
@@ -168,6 +177,10 @@ func load_level(id):
 	_set_group_active("present_world", true)
 	audio_holder.stream = load(data["music"])
 	audio_holder.play()
+	jump_control.enabled = data["can_jump"]
+	if data["env"] == "dark":
+		worldenv.environment.background_energy_multiplier = 0.02
+		sunlight.visible = false
 	shader.visible = false
 	is_loading_level = false
 	end_obj.enabled = true

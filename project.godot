@@ -33,6 +33,11 @@ grapple_points=""
 "Level 1 - rooftops"=""
 "idk work man"="scene change????"
 puzzle_ball="used for detecting when puzzle balls are in the place they need to be"
+orb="puzzle orb for maze throw off ege of world"
+
+[godot_xr_tools]
+
+player/standard_height=1.7
 
 [input]
 
