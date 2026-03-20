@@ -35,8 +35,6 @@ size = Vector3(2, 37.898926, 5)
 
 [node name="StaticBody3D" type="StaticBody3D" parent="." unique_id=1742990032 groups=["present_world"]]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 22.482374, 1, -6)
-collision_layer = 8
-collision_mask = 8
 
 [node name="Climbable" type="StaticBody3D" parent="StaticBody3D" unique_id=137496940]
 collision_layer = 262145
@@ -57,8 +55,6 @@ shape = SubResource("BoxShape3D_ft6ep")
 
 [node name="StaticBody3D2" type="StaticBody3D" parent="." unique_id=731061816 groups=["present_world"]]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 26.332695, 0, 9.5857)
-collision_layer = 8
-collision_mask = 8
 
 [node name="Climbable" type="StaticBody3D" parent="StaticBody3D2" unique_id=1974069196]
 collision_layer = 262145
@@ -79,8 +75,6 @@ shape = SubResource("BoxShape3D_ft6ep")
 
 [node name="StaticBody3D3" type="StaticBody3D" parent="." unique_id=1133874232 groups=["present_world"]]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.49337, 0, -2.263441)
-collision_layer = 8
-collision_mask = 8
 
 [node name="Climbable" type="StaticBody3D" parent="StaticBody3D3" unique_id=1833050784]
 collision_layer = 262145
@@ -101,8 +95,6 @@ shape = SubResource("BoxShape3D_ft6ep")
 
 [node name="StaticBody3D4" type="StaticBody3D" parent="." unique_id=437811425 groups=["present_world"]]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 17.917812, 0, -7.6895213)
-collision_layer = 8
-collision_mask = 8
 
 [node name="Climbable" type="StaticBody3D" parent="StaticBody3D4" unique_id=2092842246]
 collision_layer = 262145
@@ -123,8 +115,6 @@ shape = SubResource("BoxShape3D_ft6ep")
 
 [node name="StaticBody3D5" type="StaticBody3D" parent="." unique_id=1424278476 groups=["present_world"]]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14.938334, 0, -9.193356)
-collision_layer = 8
-collision_mask = 8
 
 [node name="Climbable" type="StaticBody3D" parent="StaticBody3D5" unique_id=451661761]
 collision_layer = 262145
@@ -145,8 +135,6 @@ shape = SubResource("BoxShape3D_ft6ep")
 
 [node name="StaticBody3D6" type="StaticBody3D" parent="." unique_id=1931563716 groups=["present_world"]]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11, 0, -7.68038)
-collision_layer = 8
-collision_mask = 8
 
 [node name="Climbable" type="StaticBody3D" parent="StaticBody3D6" unique_id=327933755]
 collision_layer = 262145
@@ -167,8 +155,6 @@ shape = SubResource("BoxShape3D_ft6ep")
 
 [node name="StaticBody3D7" type="StaticBody3D" parent="." unique_id=849191108 groups=["present_world"]]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8, 0, -4.1187506)
-collision_layer = 8
-collision_mask = 8
 
 [node name="Climbable" type="StaticBody3D" parent="StaticBody3D7" unique_id=1700865906]
 collision_layer = 262145
@@ -189,8 +175,6 @@ shape = SubResource("BoxShape3D_ft6ep")
 
 [node name="StaticBody3D8" type="StaticBody3D" parent="." unique_id=1336537827 groups=["present_world"]]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.929825, 0, 0.5809784)
-collision_layer = 8
-collision_mask = 8
 
 [node name="Climbable" type="StaticBody3D" parent="StaticBody3D8" unique_id=1764618426]
 collision_layer = 262145
@@ -211,8 +195,6 @@ shape = SubResource("BoxShape3D_ft6ep")
 
 [node name="StaticBody3D9" type="StaticBody3D" parent="." unique_id=1451409861 groups=["present_world"]]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.7231493, 0, 10)
-collision_layer = 8
-collision_mask = 8
 
 [node name="Climbable" type="StaticBody3D" parent="StaticBody3D9" unique_id=1919676602]
 collision_layer = 262145
@@ -233,8 +215,6 @@ shape = SubResource("BoxShape3D_ft6ep")
 
 [node name="StaticBody3D10" type="StaticBody3D" parent="." unique_id=1340767362 groups=["present_world"]]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.21638, 0, 14.64926)
-collision_layer = 8
-collision_mask = 8
 
 [node name="Climbable" type="StaticBody3D" parent="StaticBody3D10" unique_id=900760093]
 collision_layer = 262145
@@ -255,8 +235,6 @@ shape = SubResource("BoxShape3D_ft6ep")
 
 [node name="StaticBody3D11" type="StaticBody3D" parent="." unique_id=1437830562 groups=["present_world"]]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.70256805, 0, 16.896519)
-collision_layer = 8
-collision_mask = 8
 
 [node name="Climbable" type="StaticBody3D" parent="StaticBody3D11" unique_id=642363374]
 collision_layer = 262145
@@ -277,8 +255,6 @@ shape = SubResource("BoxShape3D_ft6ep")
 
 [node name="StaticBody3D12" type="StaticBody3D" parent="." unique_id=2057636306 groups=["present_world"]]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 30.560596, -4.215966, -14.93825)
-collision_layer = 8
-collision_mask = 8
 
 [node name="Climbable" type="StaticBody3D" parent="StaticBody3D12" unique_id=320398280]
 collision_layer = 262145
@@ -299,8 +275,6 @@ shape = SubResource("BoxShape3D_ft6ep")
 
 [node name="StaticBody3D13" type="StaticBody3D" parent="." unique_id=1018460879 groups=["present_world"]]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 34, 0, -11.457249)
-collision_layer = 8
-collision_mask = 8
 
 [node name="Climbable" type="StaticBody3D" parent="StaticBody3D13" unique_id=1595542994]
 collision_layer = 262145
@@ -321,8 +295,6 @@ shape = SubResource("BoxShape3D_ft6ep")
 
 [node name="StaticBody3D14" type="StaticBody3D" parent="." unique_id=448369972 groups=["present_world"]]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 33, 0, -6.323718)
-collision_layer = 8
-collision_mask = 8
 
 [node name="Climbable" type="StaticBody3D" parent="StaticBody3D14" unique_id=1741890568]
 collision_layer = 262145
@@ -343,8 +315,6 @@ shape = SubResource("BoxShape3D_ft6ep")
 
 [node name="StaticBody3D15" type="StaticBody3D" parent="." unique_id=1188125751 groups=["present_world"]]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 32, 0, 10.850788)
-collision_layer = 8
-collision_mask = 8
 
 [node name="Climbable" type="StaticBody3D" parent="StaticBody3D15" unique_id=814482512]
 collision_layer = 262145
@@ -365,8 +335,6 @@ shape = SubResource("BoxShape3D_ft6ep")
 
 [node name="StaticBody3D16" type="StaticBody3D" parent="." unique_id=1301659054 groups=["present_world"]]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -18.525011, 0, 15.767012)
-collision_layer = 8
-collision_mask = 8
 
 [node name="Climbable" type="StaticBody3D" parent="StaticBody3D16" unique_id=2006311239]
 collision_layer = 262145
@@ -387,8 +355,6 @@ shape = SubResource("BoxShape3D_ft6ep")
 
 [node name="StaticBody3D17" type="StaticBody3D" parent="." unique_id=20905423 groups=["present_world"]]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -17.607306, 0, 9)
-collision_layer = 8
-collision_mask = 8
 
 [node name="Climbable" type="StaticBody3D" parent="StaticBody3D17" unique_id=430377574]
 collision_layer = 262145
@@ -409,8 +375,6 @@ shape = SubResource("BoxShape3D_ft6ep")
 
 [node name="StaticBody3D18" type="StaticBody3D" parent="." unique_id=674635143 groups=["present_world"]]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -17, 0, -2.279439)
-collision_layer = 8
-collision_mask = 8
 
 [node name="Climbable" type="StaticBody3D" parent="StaticBody3D18" unique_id=1214081591]
 collision_layer = 262145
@@ -431,8 +395,6 @@ shape = SubResource("BoxShape3D_ft6ep")
 
 [node name="StaticBody3D19" type="StaticBody3D" parent="." unique_id=689553987 groups=["present_world"]]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -14, 0, -7.7933593)
-collision_layer = 8
-collision_mask = 8
 
 [node name="Climbable" type="StaticBody3D" parent="StaticBody3D19" unique_id=268238437]
 collision_layer = 262145
@@ -453,8 +415,6 @@ shape = SubResource("BoxShape3D_ft6ep")
 
 [node name="long wall" type="StaticBody3D" parent="." unique_id=657616378 groups=["present_world"]]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 28.482374, 10.180881, 4)
-collision_layer = 8
-collision_mask = 8
 
 [node name="Climbable" type="StaticBody3D" parent="long wall" unique_id=687206301]
 collision_layer = 262145
@@ -475,8 +435,6 @@ shape = SubResource("BoxShape3D_meop2")
 
 [node name="long wall2" type="StaticBody3D" parent="." unique_id=515047186 groups=["present_world"]]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 23.482374, 8.322904, -1)
-collision_layer = 8
-collision_mask = 8
 
 [node name="Climbable" type="StaticBody3D" parent="long wall2" unique_id=2025731394]
 collision_layer = 262145
