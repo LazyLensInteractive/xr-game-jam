@@ -12,12 +12,11 @@
 [ext_resource type="PackedScene" uid="uid://bk6ban0hctyym" path="res://addons/godot-xr-tools/functions/movement_wall_walk.tscn" id="6_yaehf"]
 [ext_resource type="PackedScene" uid="uid://drs4eeq721ojn" path="res://addons/godot-xr-tools/functions/movement_sprint.tscn" id="7_074og"]
 [ext_resource type="Script" uid="uid://b7u02fskxxs1g" path="res://game_mananger.gd" id="7_dg77c"]
-[ext_resource type="Script" uid="uid://cvnagt08r6ul4" path="res://addons/godot-xr-tools/functions/function_pointer.gd" id="8_4c57u"]
 [ext_resource type="PackedScene" uid="uid://c2q5phg8w08o" path="res://addons/godot-xr-tools/functions/movement_jump.tscn" id="8_ycdy4"]
-[ext_resource type="Material" uid="uid://c2n3g58edujyb" path="res://addons/godot-xr-tools/materials/pointer.tres" id="9_efxa6"]
 [ext_resource type="PackedScene" uid="uid://bxm1ply47vaan" path="res://addons/godot-xr-tools/functions/movement_climb.tscn" id="9_w48qg"]
 [ext_resource type="PackedScene" uid="uid://cq8wcsrk1go12" path="res://rooftops.tscn" id="12_dg77c"]
 [ext_resource type="Script" uid="uid://bfrlpbsqg5lqr" path="res://addons/godot-xr-tools/objects/pickable.gd" id="18_074og"]
+[ext_resource type="PackedScene" uid="uid://c78tjrtiyqna8" path="res://addons/godot-xr-tools/functions/movement_grapple.tscn" id="18_82xsv"]
 [ext_resource type="Shader" uid="uid://dtekwil1apy0t" path="res://blackhole.gdshader" id="19_cegan"]
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_cegan"]
@@ -62,37 +61,13 @@ shader_parameter/FogStart = 12.755
 shader_parameter/FogEnd = 300.0
 shader_parameter/Quantize = false
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_4c57u"]
-shading_mode = 0
-diffuse_mode = 1
-albedo_color = Color(1, 0.15625, 0.15625, 0.740314)
-
-[sub_resource type="BoxMesh" id="BoxMesh_dg77c"]
-resource_local_to_scene = true
-material = SubResource("StandardMaterial3D_4c57u")
-size = Vector3(0.002, 0.002, 10)
-subdivide_depth = 20
-
-[sub_resource type="BoxShape3D" id="BoxShape3D_w48qg"]
-size = Vector3(0.118, 0.479, 30)
-
-[sub_resource type="SphereMesh" id="2"]
-material = ExtResource("9_efxa6")
-radius = 0.05
-height = 0.1
-radial_segments = 16
-rings = 8
-
-[sub_resource type="SphereShape3D" id="SphereShape3D_k3gfm"]
-radius = 0.2
-
-[sub_resource type="BoxShape3D" id="BoxShape3D_vivmo"]
+[sub_resource type="SphereShape3D" id="SphereShape3D_074og"]
+radius = 2.5705953
 
 [sub_resource type="BoxMesh" id="BoxMesh_2cqfq"]
 size = Vector3(0.5, 0.5, 0.5)
 
 [node name="Node3D" type="Node3D" unique_id=975950858]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 6.2688584, 0)
 script = ExtResource("1_5vw27")
 
 [node name="PickableObject" type="RigidBody3D" parent="." unique_id=1415488722]
@@ -131,7 +106,10 @@ mesh = SubResource("QuadMesh_efxa6")
 surface_material_override/0 = SubResource("ShaderMaterial_dg77c")
 
 [node name="PlayerBody" parent="XROrigin3D" unique_id=1752026817 instance=ExtResource("1_lquwl")]
+wall_min_slide_angle = 0.0
 floor_block_on_wall = false
+floor_max_angle = 1.8622663
+floor_snap_length = 0.0
 player_calibrate_height = false
 head_behavior_mode = 2
 
@@ -176,48 +154,16 @@ text = "0/100 used"
 
 [node name="FunctionPickup" parent="XROrigin3D/XRController3D2" unique_id=98690206 instance=ExtResource("5_4c57u")]
 
-[node name="FunctionPointer" type="Node3D" parent="XROrigin3D/XRController3D2" unique_id=987469975]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.02, 0.05, -0.1)
-script = ExtResource("8_4c57u")
-show_laser = 0
-
-[node name="RayCast" type="RayCast3D" parent="XROrigin3D/XRController3D2/FunctionPointer" unique_id=677636892]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.013, 0)
-visible = false
-target_position = Vector3(0, 0, -10)
-collision_mask = 5242880
-
-[node name="Laser" type="MeshInstance3D" parent="XROrigin3D/XRController3D2/FunctionPointer" unique_id=1501219846]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.013, -5)
-visible = false
-cast_shadow = 0
-mesh = SubResource("BoxMesh_dg77c")
-
-[node name="Area3D" type="Area3D" parent="XROrigin3D/XRController3D2/FunctionPointer/Laser" unique_id=426682959]
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="XROrigin3D/XRController3D2/FunctionPointer/Laser/Area3D" unique_id=993778669]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0013618357, -0.26049805, -0.15197754)
-shape = SubResource("BoxShape3D_w48qg")
-disabled = true
-
-[node name="Target" type="MeshInstance3D" parent="XROrigin3D/XRController3D2/FunctionPointer" unique_id=498571791]
-visible = false
-mesh = SubResource("2")
-
-[node name="SuppressArea" type="Area3D" parent="XROrigin3D/XRController3D2/FunctionPointer" unique_id=300721774]
-collision_layer = 0
-collision_mask = 4194304
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="XROrigin3D/XRController3D2/FunctionPointer/SuppressArea" unique_id=1878227137]
-shape = SubResource("SphereShape3D_k3gfm")
-
 [node name="MovementClimb" parent="XROrigin3D/XRController3D2" unique_id=406937612 instance=ExtResource("9_w48qg")]
 
-[node name="GameMananger" type="Node" parent="." unique_id=898114687 node_paths=PackedStringArray("rewind_text", "laser", "lasercollision", "player", "shader", "level_holder", "grapple_pos", "end_pickable", "audio_holder", "jump_control", "worldenv", "sunlight")]
+[node name="MovementGrapple" parent="XROrigin3D/XRController3D2" unique_id=1813403035 instance=ExtResource("18_82xsv")]
+grapple_length = 4005.0
+
+[node name="GameMananger" type="Node" parent="." unique_id=898114687 node_paths=PackedStringArray("rewind_text", "laser", "lasercollision", "player", "shader", "level_holder", "grapple_pos", "end_pickable", "audio_holder", "jump_control", "worldenv", "sunlight", "player_body")]
 script = ExtResource("7_dg77c")
 rewind_text = NodePath("../XROrigin3D/XRController3D2/RightHand/Label3D")
-laser = NodePath("../XROrigin3D/XRController3D2/FunctionPointer")
-lasercollision = NodePath("../XROrigin3D/XRController3D2/FunctionPointer/Laser/Area3D/CollisionShape3D")
+laser = NodePath("")
+lasercollision = NodePath("")
 player = NodePath("../XROrigin3D")
 shader = NodePath("../XROrigin3D/XRCamera3D/shader")
 level_holder = NodePath("../Level holder")
@@ -227,12 +173,16 @@ audio_holder = NodePath("../XROrigin3D/PlayerBody/Audio_holder")
 jump_control = NodePath("../XROrigin3D/XRController3D/MovementJump")
 worldenv = NodePath("../WorldEnvironment")
 sunlight = NodePath("../DirectionalLight3D")
+player_body = NodePath("../XROrigin3D/PlayerBody")
 
 [node name="grapple point" type="StaticBody3D" parent="." unique_id=943915966 groups=["grapple_points"]]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 22.067755, 2.3536928, -16.630997)
+collision_layer = 16
+collision_mask = 16
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="grapple point" unique_id=885775741]
-shape = SubResource("BoxShape3D_vivmo")
+shape = SubResource("SphereShape3D_074og")
+disabled = true
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="grapple point" unique_id=58562579]
 mesh = SubResource("BoxMesh_2cqfq")
@@ -246,5 +196,3 @@ transform = Transform3D(3.1808746, 0, 0, 0, 1, 0, 0, 0, 1, -0.057787657, -0.0311
 [connection signal="button_pressed" from="XROrigin3D/XRController3D" to="GameMananger" method="_on_xr_controller_3d_button_pressed"]
 [connection signal="button_pressed" from="XROrigin3D/XRController3D2" to="GameMananger" method="_on_xr_controller_3d_2_button_pressed"]
 [connection signal="button_released" from="XROrigin3D/XRController3D2" to="GameMananger" method="_on_xr_controller_3d_2_button_released"]
-[connection signal="body_entered" from="XROrigin3D/XRController3D2/FunctionPointer/Laser/Area3D" to="GameMananger" method="_on_area_3d_body_entered"]
-[connection signal="body_exited" from="XROrigin3D/XRController3D2/FunctionPointer/Laser/Area3D" to="GameMananger" method="_on_area_3d_body_exited"]

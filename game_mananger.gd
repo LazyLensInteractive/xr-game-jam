@@ -15,6 +15,7 @@ extends Node
 @export var jump_control: XRToolsMovementJump
 @export var worldenv: WorldEnvironment
 @export var sunlight: DirectionalLight3D
+@export var player_body: XRToolsPlayerBody
 var total_rewinds_used = 0
 var grapple_equiped = false
 var grapple_button = false #checks if grapple is deployed
@@ -28,6 +29,7 @@ var current_level_id = 0
 var is_loading_level = false
 var end_obj = null
 var can_jump = true
+
 
 func _ready() -> void:
 	_set_group_active("past_world", false)
@@ -54,26 +56,14 @@ func _process(delta: float) -> void:
 			grappling = false
 	if not trigger_held:
 		grappling = false
-	
+	if player != null:
+		if player.global_position.y < -25:
+			on_death(current_level_id)
 	
 	
 
-func _on_xr_controller_3d_2_button_pressed(name: String) -> void: #right hand
-	if name == "trigger_touch": 
-		lasercollision.disabled = false
-		laser.show_laser = 1
-		trigger_touch_held = true
-	if name == "trigger_click":
-		trigger_held = true
+
 	
-	
-func _on_xr_controller_3d_2_button_released(name: String) -> void:
-	if name == "trigger_touch":
-		lasercollision.disabled = true
-		laser.show_laser = 0
-		trigger_touch_held = false
-	if name == "trigger_click":
-		trigger_held = false
 
 
 func _on_xr_controller_3d_button_pressed(name: String) -> void: #left hand
@@ -121,32 +111,44 @@ func _on_area_3d_body_exited(body: Node3D) -> void:
 		current_target = null
 		
 var levels = {
-	1: {
-		"path": "res://puzzle_main.tscn",
+	0: {
+		"path": "res://rooftops.tscn",
 		"grapple_pos": Vector3(32, 1, 13),
 		"end_pos": Vector3(12.667, 0.853, 3.332),
-		"player_pos": Vector3(-17.52, 0, 16.772),
+		"player_pos": Vector3(0, 0, 0),
 		"music": "res://music/examplesound.wav",
-		"can_jump": false,
+		"can_jump": true,
+		"env": "light"
+	},
+
+	1: {
+		"path": "res://rooftops_main.tscn",
+		"grapple_pos": Vector3(32, 1, 13),
+		"end_pos": Vector3(12.667, 0.853, 3.332),
+		"player_pos": Vector3(0, 0, 0),
+		"music": "res://music/examplesound.wav",
+		"can_jump": true,
 		"env": "light"
 	},
 
 	2: {
-		"path": "res://long hallway.tscn",
+		"path": "res://tower_main.tscn",
 		"grapple_pos": Vector3(32, 2, 10.85),
-		"end_pos": Vector3(0.7, 2, 16.8),
-		"player_pos": Vector3(21.5, 0, 0),
+		"end_pos": Vector3(0.7, 40, 0.7),
+		"player_pos": Vector3(0, 42, 0),
 		"music": "res://music/examplesound.wav",
-		"can_jump": true
+		"can_jump": true,
+		"env": "light"
 	},
 
-	4: {
-		"path": "res://rooftops_2.tscn",
+	3: {
+		"path": "res://puzzle_main.tscn",
 		"grapple_pos": Vector3(1, 1, 1),
 		"end_pos": Vector3(2, 2, 2),
 		"player_pos": Vector3(2.5, 0, 3.557),
 		"music": "res://music/examplesound.wav",
-		"can_jump": true
+		"can_jump": true,
+		"env": "dark"
 	}
 }
 func load_level(id):
@@ -181,6 +183,9 @@ func load_level(id):
 	if data["env"] == "dark":
 		worldenv.environment.background_energy_multiplier = 0.02
 		sunlight.visible = false
+	if data["env"] == "light":
+		worldenv.environment.background_energy_multiplier = 1
+		sunlight.visible = true
 	shader.visible = false
 	is_loading_level = false
 	end_obj.enabled = true
@@ -198,3 +203,8 @@ func _on_pickable_object_grabbed(pickable: Variant, by: Variant) -> void:
 	pickable.drop()
 	load_level(current_level_id + 1)
 	pickable.drop()
+func on_death(id):
+	current_level_id = id
+	var data = levels[id]
+	player.global_position = data["player_pos"]
+	player_body.velocity = Vector3.ZERO
