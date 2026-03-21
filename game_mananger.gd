@@ -16,6 +16,7 @@ extends Node
 @export var worldenv: WorldEnvironment
 @export var sunlight: DirectionalLight3D
 @export var player_body: XRToolsPlayerBody
+@export var animation: AnimationPlayer
 var total_rewinds_used = 0
 var grapple_equiped = false
 var grapple_button = false #checks if grapple is deployed
@@ -118,7 +119,8 @@ var levels = {
 		"player_pos": Vector3(0, 0, 0),
 		"music": "res://music/examplesound.wav",
 		"can_jump": true,
-		"env": "light"
+		"env": "light",
+		"ani": "null"
 	},
 
 	1: {
@@ -128,7 +130,8 @@ var levels = {
 		"player_pos": Vector3(0, 0, 0),
 		"music": "res://music/examplesound.wav",
 		"can_jump": true,
-		"env": "light"
+		"env": "light",
+		"ani": "rooftops moving"
 	},
 
 	2: {
@@ -138,7 +141,8 @@ var levels = {
 		"player_pos": Vector3(0, 42, 0),
 		"music": "res://music/examplesound.wav",
 		"can_jump": true,
-		"env": "light"
+		"env": "light",
+		"ani": "tower_ani"
 	},
 
 	3: {
@@ -148,7 +152,8 @@ var levels = {
 		"player_pos": Vector3(2.5, 0, 3.557),
 		"music": "res://music/examplesound.wav",
 		"can_jump": true,
-		"env": "dark"
+		"env": "dark",
+		"ani": "null"
 	}
 }
 func load_level(id):
@@ -187,6 +192,9 @@ func load_level(id):
 		worldenv.environment.background_energy_multiplier = 1
 		sunlight.visible = true
 	shader.visible = false
+	if data["ani"] != "null":
+		animation.play(data["ani"])
+		
 	is_loading_level = false
 	end_obj.enabled = true
 	
@@ -206,5 +214,7 @@ func _on_pickable_object_grabbed(pickable: Variant, by: Variant) -> void:
 func on_death(id):
 	current_level_id = id
 	var data = levels[id]
+	if data["ani"] != "null":
+		animation.stop()
 	player.global_position = data["player_pos"]
 	player_body.velocity = Vector3.ZERO

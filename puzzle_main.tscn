@@ -262,7 +262,7 @@ shape = SubResource("BoxShape3D_spy8d")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -17.519794, 1.2051096, 16.771927)
 
 [node name="flashlight" parent="." unique_id=872897168 instance=ExtResource("1_am0gv")]
-transform = Transform3D(0.89, 0, 0, 0, 0.89, 0, 0, 0, 0.89, -16, 1.2486851, 17)
+transform = Transform3D(0.89, 0, 0, 0, 0.89, 0, 0, 0, 0.89, -14.2521105, 1.2486851, 17)
 
 [node name="orb" parent="." unique_id=88749353 instance=ExtResource("3_pyj8o")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10.268285, 1.9472897, -6.223977)

@@ -14,9 +14,9 @@
 [ext_resource type="Script" uid="uid://b7u02fskxxs1g" path="res://game_mananger.gd" id="7_dg77c"]
 [ext_resource type="PackedScene" uid="uid://c2q5phg8w08o" path="res://addons/godot-xr-tools/functions/movement_jump.tscn" id="8_ycdy4"]
 [ext_resource type="PackedScene" uid="uid://bxm1ply47vaan" path="res://addons/godot-xr-tools/functions/movement_climb.tscn" id="9_w48qg"]
-[ext_resource type="PackedScene" uid="uid://cq8wcsrk1go12" path="res://rooftops.tscn" id="12_dg77c"]
 [ext_resource type="Script" uid="uid://bfrlpbsqg5lqr" path="res://addons/godot-xr-tools/objects/pickable.gd" id="18_074og"]
 [ext_resource type="PackedScene" uid="uid://c78tjrtiyqna8" path="res://addons/godot-xr-tools/functions/movement_grapple.tscn" id="18_82xsv"]
+[ext_resource type="PackedScene" uid="uid://dlgbypuu7jkjo" path="res://rooftops_main.tscn" id="18_cegan"]
 [ext_resource type="Shader" uid="uid://dtekwil1apy0t" path="res://blackhole.gdshader" id="19_cegan"]
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_cegan"]
@@ -34,6 +34,67 @@ shader_parameter/voxel_size = 0.30100001359898
 material = SubResource("ShaderMaterial_82xsv")
 radial_segments = 8
 rings = 4
+
+[sub_resource type="Animation" id="Animation_82xsv"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:enabled")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(1.6050873, 0.8511534, -0.3968439)]
+}
+
+[sub_resource type="Animation" id="Animation_getpj"]
+resource_name = "rooftops moving"
+length = 35.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:enabled")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.33333334, 4.8333335, 5.46, 8, 10.01, 10.51, 11.51, 14.01, 17.093304, 22.013304, 24.997473, 34.970238),
+"transitions": PackedFloat32Array(1, 1, 3.732131, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector3(1.6050873, 0.8511534, -0.3968439), Vector3(2.88, 0.851, -0.397), Vector3(2.88, 1.786, 23.167), Vector3(2.1214838, 1.3845131, 22.842388), Vector3(12.290007, 1.786, 16.802086), Vector3(33.061752, -1.3413908, 16.802086), Vector3(33.061752, -1.3413908, 22.961388), Vector3(42.50978, -1.3413908, 22.961388), Vector3(42.50978, -1.3413908, 13.097606), Vector3(55.267475, -1.3413908, 13.097606), Vector3(71.85508, -1.3413908, 13.097606), Vector3(82.729065, -19.29426, 13.097606), Vector3(82.729065, 14.26715, 13.097606)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_ryguw"]
+_data = {
+&"RESET": SubResource("Animation_82xsv"),
+&"rooftops moving": SubResource("Animation_getpj")
+}
 
 [sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_2cqfq"]
 panorama = ExtResource("2_vivmo")
@@ -61,6 +122,11 @@ shader_parameter/FogStart = 12.755
 shader_parameter/FogEnd = 300.0
 shader_parameter/Quantize = false
 
+[sub_resource type="BoxMesh" id="BoxMesh_074og"]
+resource_local_to_scene = true
+size = Vector3(0.15, 0.15, 0.05)
+subdivide_depth = 20
+
 [sub_resource type="SphereShape3D" id="SphereShape3D_074og"]
 radius = 2.5705953
 
@@ -71,7 +137,7 @@ size = Vector3(0.5, 0.5, 0.5)
 script = ExtResource("1_5vw27")
 
 [node name="PickableObject" type="RigidBody3D" parent="." unique_id=1415488722]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.1412182, 4.645166, -5.614503)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.6050873, 0.8511534, -0.3968439)
 collision_layer = 4
 collision_mask = 196615
 freeze = true
@@ -85,6 +151,9 @@ shape = SubResource("SphereShape3D_cegan")
 [node name="MeshInstance3D" type="MeshInstance3D" parent="PickableObject" unique_id=1273300593]
 transform = Transform3D(0.8999876, 0, 0, 0, 0.869247, 0, 0, 0, 1, 0, 0, 0)
 mesh = SubResource("SphereMesh_82xsv")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="PickableObject" unique_id=265747805]
+libraries/ = SubResource("AnimationLibrary_ryguw")
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=1205741067]
 transform = Transform3D(-0.8660254, -0.43301278, 0.25, 0, 0.49999997, 0.86602545, -0.50000006, 0.75, -0.43301266, 0, 0, 0)
@@ -106,6 +175,7 @@ mesh = SubResource("QuadMesh_efxa6")
 surface_material_override/0 = SubResource("ShaderMaterial_dg77c")
 
 [node name="PlayerBody" parent="XROrigin3D" unique_id=1752026817 instance=ExtResource("1_lquwl")]
+collision_mask = 1007
 wall_min_slide_angle = 0.0
 floor_block_on_wall = false
 floor_max_angle = 1.8622663
@@ -123,19 +193,6 @@ fast_speed = 5.0
 
 [node name="Audio_holder" type="AudioStreamPlayer3D" parent="XROrigin3D/PlayerBody" unique_id=1351855725]
 volume_db = 1.725
-
-[node name="XRController3D" type="XRController3D" parent="XROrigin3D" unique_id=696964158]
-tracker = &"left_hand"
-
-[node name="LeftHand" parent="XROrigin3D/XRController3D" unique_id=569361212 instance=ExtResource("3_5vw27")]
-
-[node name="MovementDirect" parent="XROrigin3D/XRController3D" unique_id=1311404173 instance=ExtResource("4_kek77")]
-
-[node name="FunctionPickup" parent="XROrigin3D/XRController3D" unique_id=1826695796 instance=ExtResource("5_4c57u")]
-
-[node name="MovementJump" parent="XROrigin3D/XRController3D" unique_id=2080806257 instance=ExtResource("8_ycdy4")]
-
-[node name="MovementClimb" parent="XROrigin3D/XRController3D" unique_id=1643188706 instance=ExtResource("9_w48qg")]
 
 [node name="XRController3D2" type="XRController3D" parent="XROrigin3D" unique_id=56201656]
 tracker = &"right_hand"
@@ -156,14 +213,28 @@ text = "0/100 used"
 
 [node name="MovementClimb" parent="XROrigin3D/XRController3D2" unique_id=406937612 instance=ExtResource("9_w48qg")]
 
-[node name="MovementGrapple" parent="XROrigin3D/XRController3D2" unique_id=1813403035 instance=ExtResource("18_82xsv")]
-grapple_length = 4005.0
+[node name="MovementGrapple" parent="XROrigin3D/XRController3D2" unique_id=976148406 instance=ExtResource("18_82xsv")]
+grapple_length = 35.0
 
-[node name="GameMananger" type="Node" parent="." unique_id=898114687 node_paths=PackedStringArray("rewind_text", "laser", "lasercollision", "player", "shader", "level_holder", "grapple_pos", "end_pickable", "audio_holder", "jump_control", "worldenv", "sunlight", "player_body")]
+[node name="Grapple_Target" parent="XROrigin3D/XRController3D2/MovementGrapple" index="1"]
+mesh = SubResource("BoxMesh_074og")
+
+[node name="XRController3D" type="XRController3D" parent="XROrigin3D" unique_id=696964158]
+tracker = &"left_hand"
+
+[node name="LeftHand" parent="XROrigin3D/XRController3D" unique_id=569361212 instance=ExtResource("3_5vw27")]
+
+[node name="MovementDirect" parent="XROrigin3D/XRController3D" unique_id=1311404173 instance=ExtResource("4_kek77")]
+
+[node name="FunctionPickup" parent="XROrigin3D/XRController3D" unique_id=1826695796 instance=ExtResource("5_4c57u")]
+
+[node name="MovementJump" parent="XROrigin3D/XRController3D" unique_id=2080806257 instance=ExtResource("8_ycdy4")]
+
+[node name="MovementClimb" parent="XROrigin3D/XRController3D" unique_id=1643188706 instance=ExtResource("9_w48qg")]
+
+[node name="GameMananger" type="Node" parent="." unique_id=898114687 node_paths=PackedStringArray("rewind_text", "player", "shader", "level_holder", "grapple_pos", "end_pickable", "audio_holder", "jump_control", "worldenv", "sunlight", "player_body", "animation")]
 script = ExtResource("7_dg77c")
 rewind_text = NodePath("../XROrigin3D/XRController3D2/RightHand/Label3D")
-laser = NodePath("")
-lasercollision = NodePath("")
 player = NodePath("../XROrigin3D")
 shader = NodePath("../XROrigin3D/XRCamera3D/shader")
 level_holder = NodePath("../Level holder")
@@ -174,25 +245,26 @@ jump_control = NodePath("../XROrigin3D/XRController3D/MovementJump")
 worldenv = NodePath("../WorldEnvironment")
 sunlight = NodePath("../DirectionalLight3D")
 player_body = NodePath("../XROrigin3D/PlayerBody")
+animation = NodePath("../PickableObject/AnimationPlayer")
 
 [node name="grapple point" type="StaticBody3D" parent="." unique_id=943915966 groups=["grapple_points"]]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 22.067755, 2.3536928, -16.630997)
 collision_layer = 16
-collision_mask = 16
+collision_mask = 0
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="grapple point" unique_id=885775741]
 shape = SubResource("SphereShape3D_074og")
-disabled = true
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="grapple point" unique_id=58562579]
 mesh = SubResource("BoxMesh_2cqfq")
 
 [node name="Level holder" type="Node" parent="." unique_id=1371839531 groups=["Level 1 - rooftops"]]
 
-[node name="rooftops" parent="Level holder" unique_id=896279738 instance=ExtResource("12_dg77c")]
-transform = Transform3D(3.1808746, 0, 0, 0, 1, 0, 0, 0, 1, -0.057787657, -0.031106234, 0.030483246)
+[node name="rooftops_main" parent="Level holder" unique_id=302516591 instance=ExtResource("18_cegan")]
 
 [connection signal="grabbed" from="PickableObject" to="GameMananger" method="_on_pickable_object_grabbed"]
-[connection signal="button_pressed" from="XROrigin3D/XRController3D" to="GameMananger" method="_on_xr_controller_3d_button_pressed"]
 [connection signal="button_pressed" from="XROrigin3D/XRController3D2" to="GameMananger" method="_on_xr_controller_3d_2_button_pressed"]
 [connection signal="button_released" from="XROrigin3D/XRController3D2" to="GameMananger" method="_on_xr_controller_3d_2_button_released"]
+[connection signal="button_pressed" from="XROrigin3D/XRController3D" to="GameMananger" method="_on_xr_controller_3d_button_pressed"]
+
+[editable path="XROrigin3D/XRController3D2/MovementGrapple"]
