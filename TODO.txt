@@ -1,4 +1,5 @@
 More gentle start screen
+Directions for new player on starting map
 Automatic level completion (loads other maps after level completed)
 
 Done:

@@ -1,5 +1,7 @@
 extends Node3D
-@onready var mat = $PickableObject/MeshInstance3D.get_active_material(0)
+@onready var mat = $FloatyOrb/MeshInstance3D.get_active_material(0)
+
+signal xr_initialized
 
 var xr_interface: XRInterface
 var glitch_speed = 0.67
@@ -9,6 +11,7 @@ func _ready():
 	xr_interface = XRServer.find_interface("OpenXR")
 	if xr_interface and xr_interface.is_initialized():
 		print("OpenXR initialized successfully")
+		xr_initialized.emit()
 
 		# Turn off v-sync!
 		DisplayServer.window_set_vsync_mode(DisplayServer.VSYNC_DISABLED)
