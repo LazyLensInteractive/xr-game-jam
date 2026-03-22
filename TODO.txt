@@ -1,0 +1,4 @@
+More gentle start screen
+Automatic level completion (loads other maps after level completed)
+
+Done:
