@@ -41,22 +41,23 @@ func _ready() -> void:
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
+#old grapple system cleanup
 func _process(delta: float) -> void:
-	
-	if trigger_held and current_target != null and not grappling:
-		grappling = true
-		grapple_point_position = current_target.global_position
-	if grappling:
-		var direction = grapple_point_position - player.global_position
-		var distance = direction.length()
-		
-		if distance > distance_to_auto_stop:
-			direction = direction.normalized()
-			player.global_position += direction * speed * delta
-		else:
-			grappling = false
-	if not trigger_held:
-		grappling = false
+	#
+	#if trigger_held and current_target != null and not grappling:
+		#grappling = true
+		#grapple_point_position = current_target.global_position
+	#if grappling:
+		#var direction = grapple_point_position - player.global_position
+		#var distance = direction.length()
+		#
+		#if distance > distance_to_auto_stop:
+			#direction = direction.normalized()
+			#player.global_position += direction * speed * delta
+		#else:
+			#grappling = false
+	#if not trigger_held:
+		#grappling = false
 	if player != null:
 		if player.global_position.y < -25:
 			on_death(current_level_id)
@@ -85,12 +86,25 @@ func _on_xr_controller_3d_button_pressed(name: String) -> void: #left hand
 func _set_group_active(group_name: String, state: bool):
 	for node in get_tree().get_nodes_in_group(group_name):
 		if node is Node3D:
-			node.visible = state
-		for shape in node.get_children():
-			if shape is CollisionShape3D:
+			var all_meshes = node.find_children("*", "MeshInstance3D", true)
+			for mesh in all_meshes:
+				if not state:
+					mesh.material_override = load("res://outline.tres")
+				else:
+					mesh.material_override = null
+			var all_collisions = node.find_children("*", "CollisionShape3D", true)
+			for shape in all_collisions:
 				shape.disabled = !state
-			if shape.get_child_count() > 0:
-				_disable_collision(shape, !state)
+			#for shape in node.get_children():
+				#if shape is MeshInstance3D:
+					#if not state: 
+						#shape.material_override = load("res://outline.tres")
+					#else:
+						#shape.material_override = null
+				#if shape is CollisionShape3D:
+					#shape.disabled = !state
+				#if shape.get_child_count() > 0:
+					#_disable_collision(shape, !state)
 
 
 func _disable_collision(parent: Node, disable: bool):
@@ -100,63 +114,66 @@ func _disable_collision(parent: Node, disable: bool):
 		elif child.get_child_count() > 0:
 			_disable_collision(child, disable)
 
-func _on_area_3d_body_entered(body: Node3D) -> void:
-	if body.is_in_group("grapple_points"):
-		current_target = body
-		
-	
-		
-	
-func _on_area_3d_body_exited(body: Node3D) -> void:
-	if body.is_in_group("grapple_points"):
-		current_target = null
+#old grapple system cleanup
+#func _on_area_3d_body_entered(body: Node3D) -> void:
+	#if body.is_in_group("grapple_points"):
+		#current_target = body
+		#
+	#
+		#
+	#
+#func _on_area_3d_body_exited(body: Node3D) -> void:
+	#if body.is_in_group("grapple_points"):
+		#current_target = null
 		
 var levels = {
-	0: {
-		"path": "res://rooftops.tscn",
-		"grapple_pos": Vector3(32, 1, 13),
-		"end_pos": Vector3(12.667, 0.853, 3.332),
+	1: {
+		"path": "res://tutorial.tscn",
+		"grapple_pos": Vector3(-24.88, 7, -1.2),
+		"end_pos": Vector3(-33.76, 7.324, -0.73),
 		"player_pos": Vector3(0, 0, 0),
-		"music": "res://music/examplesound.wav",
+		"music": "res://music/xr game jam main rev1.wav",
 		"can_jump": true,
 		"env": "light",
 		"ani": "null"
 	},
 
-	1: {
+	2: {
 		"path": "res://rooftops_main.tscn",
 		"grapple_pos": Vector3(32, 1, 13),
 		"end_pos": Vector3(12.667, 0.853, 3.332),
 		"player_pos": Vector3(0, 0, 0),
-		"music": "res://music/examplesound.wav",
+		"music": "res://music/xr game jam main rev1.wav",
 		"can_jump": true,
 		"env": "light",
 		"ani": "rooftops moving"
 	},
 
-	2: {
-		"path": "res://tower_main.tscn",
-		"grapple_pos": Vector3(32, 2, 10.85),
-		"end_pos": Vector3(0.7, 40, 0.7),
-		"player_pos": Vector3(0, 42, 0),
-		"music": "res://music/examplesound.wav",
-		"can_jump": true,
-		"env": "light",
-		"ani": "tower_ani"
-	},
 
 	3: {
 		"path": "res://puzzle_main.tscn",
-		"grapple_pos": Vector3(1, 1, 1),
-		"end_pos": Vector3(2, 2, 2),
-		"player_pos": Vector3(2.5, 0, 3.557),
-		"music": "res://music/examplesound.wav",
-		"can_jump": true,
-		"env": "dark",
+		"grapple_pos": Vector3(1000, 1000, 1000),
+		"end_pos": Vector3(18, 2, 12),
+		"player_pos": Vector3(-14.25, 0, 17),
+		"music": "res://music/xr game jam main rev1.wav",
+		"can_jump": false,
+		"env": "light",
+		"ani": "null"
+	},
+	4: {
+		"path": "res://end.tscn",
+		"grapple_pos": Vector3(1000, 1000, 1000),
+		"end_pos": Vector3(1008, 1002, 1112),
+		"player_pos": Vector3(0, 0, 0),
+		"music": "res://music/victory.wav",
+		"can_jump": false,
+		"env": "light",
 		"ani": "null"
 	}
+	
 }
 func load_level(id):
+	animation.stop()
 	current_level_id = id
 	for child in level_holder.get_children():
 		child.queue_free()
@@ -216,5 +233,6 @@ func on_death(id):
 	var data = levels[id]
 	if data["ani"] != "null":
 		animation.stop()
+		animation.play(data["ani"])
 	player.global_position = data["player_pos"]
 	player_body.velocity = Vector3.ZERO

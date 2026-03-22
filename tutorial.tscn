@@ -1,80 +1,176 @@
 [gd_scene format=3 uid="uid://bujg5lmf3r773"]
 
-[ext_resource type="Texture2D" uid="uid://dk8o82rjww802" path="res://addons/godot-xr-tools/hands/textures/african_realistic_baseColor.png" id="1_7n6eb"]
+[ext_resource type="Shader" uid="uid://dyp7xwetiedka" path="res://puzzle_main.gdshader" id="1_ehuit"]
+[ext_resource type="Material" uid="uid://le17k3axhtbn" path="res://past.tres" id="2_5mrt3"]
+[ext_resource type="PackedScene" uid="uid://cjyilbm4ucc7s" path="res://addons/godot-xr-tools/objects/climbable.tscn" id="2_rwowx"]
+[ext_resource type="Material" uid="uid://d2n1npnj7u2vg" path="res://present.tres" id="3_rwowx"]
 
-[sub_resource type="BoxShape3D" id="BoxShape3D_yb1ct"]
-size = Vector3(1, 1, 3.3447876)
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_hu44a"]
+render_priority = 0
+shader = ExtResource("1_ehuit")
+shader_parameter/grid_color = Color(0, 0.5, 1, 1)
+shader_parameter/base_color = Color(0.2, 0.2, 0.3, 1)
+shader_parameter/grid_line_thickness = 0.05
+shader_parameter/grid_scale = 1.0
 
-[sub_resource type="BoxMesh" id="BoxMesh_ehuit"]
-size = Vector3(1, 1, 3.3447876)
+[sub_resource type="BoxMesh" id="BoxMesh_0cr88"]
+material = SubResource("ShaderMaterial_hu44a")
+size = Vector3(20, 0.3, 10)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_5mrt3"]
-size = Vector3(18, 0.2, 16)
+size = Vector3(21.632813, 0.3, 10)
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_rwowx"]
-normal_enabled = true
-normal_scale = 0.68
-normal_texture = ExtResource("1_7n6eb")
+[sub_resource type="BoxShape3D" id="BoxShape3D_rwowx"]
+size = Vector3(20, 0.3, 10)
 
-[sub_resource type="BoxMesh" id="BoxMesh_hu44a"]
-material = SubResource("StandardMaterial3D_rwowx")
-size = Vector3(18, 0.2, 16)
+[sub_resource type="TextMesh" id="TextMesh_tvjhf"]
+text = "Welcome!
+Left stick to move forward!"
+
+[sub_resource type="TextMesh" id="TextMesh_vmw6g"]
+text = "X button to rewind 
+and visit a past version of this level!"
+
+[sub_resource type="TextMesh" id="TextMesh_4hjyh"]
+text = "A lot of objects are climable!"
+
+[sub_resource type="TextMesh" id="TextMesh_bsk3x"]
+text = "This is a graple point!
+point right hand at it and pull trigger!"
+
+[sub_resource type="TextMesh" id="TextMesh_hu44a"]
+text = "This is the win condition 
+find these to finish the level!"
+
+[sub_resource type="BoxMesh" id="BoxMesh_7vrqn"]
+material = ExtResource("2_5mrt3")
+size = Vector3(0.44, 3.15, 5.48)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_0cr88"]
-size = Vector3(1, 3.1401367, 6.328369)
+size = Vector3(0.44, 3.15, 5.48)
+
+[sub_resource type="BoxMesh" id="BoxMesh_bhfnd"]
+material = ExtResource("2_5mrt3")
+size = Vector3(0.44, 11.79, 5.48)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_4t6hg"]
+size = Vector3(0.44, 11.79, 5.48)
 
 [sub_resource type="BoxMesh" id="BoxMesh_4t6hg"]
-size = Vector3(1, 3.1401367, 6.328369)
+material = ExtResource("2_5mrt3")
+custom_aabb = AABB(0, 0, 0, 0, 0.065, 0)
+size = Vector3(0.44, 31.555, 5.48)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_7vrqn"]
+size = Vector3(0.44, 31.555, 5.48)
+
+[sub_resource type="BoxMesh" id="BoxMesh_5mrt3"]
+material = ExtResource("3_rwowx")
+custom_aabb = AABB(0, 0, 0, 0, 0.065, 0)
+size = Vector3(0.44, 31.555, 5.48)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_bhfnd"]
+size = Vector3(0.44, 31.555, 5.48)
+
+[sub_resource type="BoxMesh" id="BoxMesh_rwowx"]
+material = ExtResource("3_rwowx")
+custom_aabb = AABB(0, 0, 0, 0, 0.065, 0)
+size = Vector3(0.44, 31.555, 5.48)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_tvjhf"]
+size = Vector3(0.44, 31.555, 5.48)
 
 [node name="tutorial" type="Node3D" unique_id=707345943]
 
-[node name="Past scene" type="Node" parent="." unique_id=980817531]
+[node name="StaticBody3D" type="StaticBody3D" parent="." unique_id=1697598261]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.869457, 0, 0)
 
-[node name="Present" type="Node" parent="." unique_id=1594902325]
+[node name="MeshInstance3D" type="MeshInstance3D" parent="StaticBody3D" unique_id=1878908200]
+mesh = SubResource("BoxMesh_0cr88")
 
-[node name="StaticBody3D" type="StaticBody3D" parent="Present" unique_id=560485913 groups=["present_world"]]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.879444, -1.829575, 0)
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Present/StaticBody3D" unique_id=621709586]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.08554077)
-shape = SubResource("BoxShape3D_yb1ct")
-
-[node name="MeshInstance3D" type="MeshInstance3D" parent="Present/StaticBody3D" unique_id=938357500]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.06465232)
-mesh = SubResource("BoxMesh_ehuit")
-
-[node name="Label3D" type="Label3D" parent="Present/StaticBody3D" unique_id=2130124753]
-transform = Transform3D(0.0002283904, 0.008723547, 0.9999619, 0.026175957, 0.99961936, -0.008726535, -0.99965745, 0.026176954, -4.3709722e-08, 0.5528054, 0, 0)
-text = "X button to rewind time!
-(rewinding helps you solve puzzles)"
-
-[node name="persistant" type="Node" parent="." unique_id=356339778]
-
-[node name="StaticBody3D" type="StaticBody3D" parent="persistant" unique_id=745385146]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -2.5650206, 0)
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="persistant/StaticBody3D" unique_id=1964537408]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D" unique_id=1054504829]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.81640625, 0, 0)
 shape = SubResource("BoxShape3D_5mrt3")
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="persistant/StaticBody3D" unique_id=1409293672]
-mesh = SubResource("BoxMesh_hu44a")
+[node name="MeshInstance3D7" type="MeshInstance3D" parent="StaticBody3D" unique_id=622800093]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -20, 5.8103647, -0.6130142)
+mesh = SubResource("BoxMesh_0cr88")
 
-[node name="StaticBody3D2" type="StaticBody3D" parent="persistant" unique_id=1823370886]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.853978, -2.5650206, 4.9570904)
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="StaticBody3D" unique_id=981364519]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -20, 5.8103647, -0.6130142)
+shape = SubResource("BoxShape3D_rwowx")
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="persistant/StaticBody3D2" unique_id=2022108866]
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=814687931]
+transform = Transform3D(-0.015654922, 0, 0.99987745, 0, 1, 0, -0.99987745, 0, -0.015654922, -2.445341, 1.6666026, 0)
+mesh = SubResource("TextMesh_tvjhf")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="." unique_id=981401543]
+transform = Transform3D(-0.015654922, 0, 0.99987745, 0, 1, 0, -0.99987745, 0, -0.015654922, -13.563366, 1.6666026, 0)
+mesh = SubResource("TextMesh_vmw6g")
+
+[node name="MeshInstance3D3" type="MeshInstance3D" parent="." unique_id=511325104]
+transform = Transform3D(-0.015654922, 0, 0.99987745, 0, 1, 0, -0.99987745, 0, -0.015654922, -19.563366, 1.6666026, 2)
+mesh = SubResource("TextMesh_4hjyh")
+
+[node name="MeshInstance3D4" type="MeshInstance3D" parent="." unique_id=805008067]
+transform = Transform3D(-0.015654922, 0, 0.99987745, 0, 1, 0, -0.99987745, 0, -0.015654922, -23.183588, 7.5173416, -1.2215695)
+mesh = SubResource("TextMesh_bsk3x")
+
+[node name="MeshInstance3D5" type="MeshInstance3D" parent="." unique_id=1113944069]
+transform = Transform3D(-0.015654922, 0, 0.99987745, 0, 1, 0, -0.99987745, 0, -0.015654922, -31.46317, 7.5173416, -1.2215695)
+mesh = SubResource("TextMesh_hu44a")
+
+[node name="past" type="Node" parent="." unique_id=32621748]
+
+[node name="StaticBody3D" type="StaticBody3D" parent="past" unique_id=1288565949 groups=["past_world"]]
+
+[node name="Climbable" parent="past/StaticBody3D" unique_id=851902899 instance=ExtResource("2_rwowx")]
+
+[node name="MeshInstance3D4" type="MeshInstance3D" parent="past/StaticBody3D/Climbable" unique_id=375741737]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -19.869457, 0, 2.238112)
+material_override = ExtResource("2_5mrt3")
+mesh = SubResource("BoxMesh_7vrqn")
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="past/StaticBody3D/Climbable" unique_id=1342189967]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -19.869457, 0, 2.238112)
 shape = SubResource("BoxShape3D_0cr88")
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="persistant/StaticBody3D2" unique_id=261883467]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.07203436, 0, 0.0101418495)
+[node name="MeshInstance3D5" type="MeshInstance3D" parent="past/StaticBody3D/Climbable" unique_id=124979140]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -19.869457, 0, -2.761888)
+material_override = ExtResource("2_5mrt3")
+mesh = SubResource("BoxMesh_bhfnd")
+
+[node name="CollisionShape3D3" type="CollisionShape3D" parent="past/StaticBody3D/Climbable" unique_id=2107143121]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -19.869457, 0, -2.761888)
+shape = SubResource("BoxShape3D_4t6hg")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="past/StaticBody3D" unique_id=1132981013]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.869457, 0, 2.238112)
+material_override = ExtResource("2_5mrt3")
 mesh = SubResource("BoxMesh_4t6hg")
 
-[node name="StaticBody3D3" type="StaticBody3D" parent="persistant" unique_id=1680955668]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.853978, -2.5650206, -4.7330647)
+[node name="CollisionShape3D3" type="CollisionShape3D" parent="past/StaticBody3D" unique_id=1138176232]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.869457, 0, 2.238112)
+shape = SubResource("BoxShape3D_7vrqn")
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="persistant/StaticBody3D3" unique_id=694491437]
-shape = SubResource("BoxShape3D_0cr88")
+[node name="present" type="Node" parent="." unique_id=619593097]
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="persistant/StaticBody3D3" unique_id=477639613]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.07203436, 0, 0.0101418495)
-mesh = SubResource("BoxMesh_4t6hg")
+[node name="StaticBody3D" type="StaticBody3D" parent="present" unique_id=872719219 groups=["present_world"]]
+
+[node name="MeshInstance3D6" type="MeshInstance3D" parent="present/StaticBody3D" unique_id=1932152689]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -14.869457, 0, -2.761888)
+material_override = ExtResource("3_rwowx")
+mesh = SubResource("BoxMesh_5mrt3")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="present/StaticBody3D" unique_id=821972605]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -14.869457, 0, -2.761888)
+shape = SubResource("BoxShape3D_bhfnd")
+
+[node name="MeshInstance3D3" type="MeshInstance3D" parent="present/StaticBody3D" unique_id=1497400353]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -14.869457, 0, 2.238112)
+material_override = ExtResource("3_rwowx")
+mesh = SubResource("BoxMesh_rwowx")
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="present/StaticBody3D" unique_id=297814763]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -14.869457, 0, 2.238112)
+shape = SubResource("BoxShape3D_tvjhf")

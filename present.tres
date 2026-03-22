@@ -1,0 +1,11 @@
+[gd_resource type="ShaderMaterial" format=3 uid="uid://d2n1npnj7u2vg"]
+
+[ext_resource type="Shader" uid="uid://bie6muo4cr0mw" path="res://test.gdshader" id="1_pfmq8"]
+
+[resource]
+render_priority = 0
+shader = ExtResource("1_pfmq8")
+shader_parameter/grid_color = Color(0.38538197, 0.54474455, 1, 1)
+shader_parameter/base_color = Color(0.1, 0.1, 0.1, 1)
+shader_parameter/grid_line_thickness = 0.013999999966480001
+shader_parameter/grid_scale = 11.325

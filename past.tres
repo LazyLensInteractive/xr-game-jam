@@ -1,0 +1,11 @@
+[gd_resource type="ShaderMaterial" format=3 uid="uid://le17k3axhtbn"]
+
+[ext_resource type="Shader" uid="uid://bie6muo4cr0mw" path="res://test.gdshader" id="1_entv5"]
+
+[resource]
+render_priority = 0
+shader = ExtResource("1_entv5")
+shader_parameter/grid_color = Color(0.8976308, 0.33933342, 0.857473, 1)
+shader_parameter/base_color = Color(0.1, 0.1, 0.1, 1)
+shader_parameter/grid_line_thickness = 0.08500000333898
+shader_parameter/grid_scale = 37.28

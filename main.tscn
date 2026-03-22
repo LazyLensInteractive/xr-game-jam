@@ -6,6 +6,7 @@
 [ext_resource type="Shader" uid="uid://bio6wt08crra" path="res://celshade.gdshader" id="2_efxa6"]
 [ext_resource type="Texture2D" uid="uid://dx6webxdsyjpa" path="res://images/citrus_orchard_puresky_4k.exr" id="2_vivmo"]
 [ext_resource type="PackedScene" uid="uid://njx823gyk04n" path="res://addons/godot-xr-tools/hands/scenes/highpoly/left_hand.tscn" id="3_5vw27"]
+[ext_resource type="AudioStream" uid="uid://chwjf48w1cj8p" path="res://music/orb.wav" id="4_82xsv"]
 [ext_resource type="PackedScene" uid="uid://bl2nuu3qhlb5k" path="res://addons/godot-xr-tools/functions/movement_direct.tscn" id="4_kek77"]
 [ext_resource type="PackedScene" uid="uid://b4ysuy43poobf" path="res://addons/godot-xr-tools/functions/function_pickup.tscn" id="5_4c57u"]
 [ext_resource type="Script" uid="uid://bvqt34bnow8cg" path="res://xr_camera_3d.gd" id="5_cegan"]
@@ -17,8 +18,8 @@
 [ext_resource type="PackedScene" uid="uid://bxm1ply47vaan" path="res://addons/godot-xr-tools/functions/movement_climb.tscn" id="9_w48qg"]
 [ext_resource type="Script" uid="uid://bfrlpbsqg5lqr" path="res://addons/godot-xr-tools/objects/pickable.gd" id="18_074og"]
 [ext_resource type="PackedScene" uid="uid://c78tjrtiyqna8" path="res://addons/godot-xr-tools/functions/movement_grapple.tscn" id="18_82xsv"]
-[ext_resource type="PackedScene" path="res://rooftops_main.tscn" id="18_cegan"]
 [ext_resource type="Shader" uid="uid://dtekwil1apy0t" path="res://blackhole.gdshader" id="19_cegan"]
+[ext_resource type="PackedScene" uid="uid://bujg5lmf3r773" path="res://tutorial.tscn" id="20_82xsv"]
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_cegan"]
 
@@ -65,7 +66,7 @@ tracks/1/keys = {
 
 [sub_resource type="Animation" id="Animation_getpj"]
 resource_name = "rooftops moving"
-length = 35.0
+length = 60.0
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -85,10 +86,10 @@ tracks/1/path = NodePath(".:position")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
-"times": PackedFloat32Array(0, 0.33333334, 4.8333335, 5.46, 8, 10.01, 10.51, 11.51, 14.01, 17.093304, 22.013304, 24.997473, 34.970238),
-"transitions": PackedFloat32Array(1, 1, 3.732131, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"times": PackedFloat32Array(0, 0.33333334, 1.28, 2.25, 2.38, 4.4, 4.92, 5.2, 5.6, 7.9666667, 8.366667, 10.18, 10.82, 11, 11.23, 11.53, 12.15, 14.18, 15.502143, 17.852142, 21.022142, 23.742144, 31.119759, 39.98785, 42.87785, 45.401367, 48.111366, 48.341366, 48.881367, 49.07137, 52.851368, 54.2, 59.966667, 60),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
 "update": 0,
-"values": [Vector3(1.6050873, 0.8511534, -0.3968439), Vector3(2.88, 0.851, -0.397), Vector3(2.88, 1.786, 23.167), Vector3(2.1214838, 1.3845131, 22.842388), Vector3(12.290007, 1.786, 16.802086), Vector3(33.061752, -1.3413908, 16.802086), Vector3(33.061752, -1.3413908, 22.961388), Vector3(42.50978, -1.3413908, 22.961388), Vector3(42.50978, -1.3413908, 13.097606), Vector3(55.267475, -1.3413908, 13.097606), Vector3(71.85508, -1.3413908, 13.097606), Vector3(82.729065, -19.29426, 13.097606), Vector3(82.729065, 14.26715, 13.097606)]
+"values": [Vector3(1.6050873, 0.8511534, -0.3968439), Vector3(2.88, 0.851, -0.397), Vector3(0.42462444, 1.0476964, 4.5601673), Vector3(0.18087709, 7.8657517, 5.938183), Vector3(1.210212, 7.5598025, 7.661641), Vector3(1.1277864, 13.416496, 9.778344), Vector3(2.1205812, 16.42627, 17.268005), Vector3(2.7824445, 14.257308, 22.261116), Vector3(2.7824445, 14.257308, 22.261116), Vector3(12.393351, 11.684103, 16.802086), Vector3(12.393351, 11.684103, 16.802086), Vector3(23.168375, 9.585302, 16.032322), Vector3(23.499153, 8.573763, 15.76064), Vector3(24.410683, 7.7105074, 15.68423), Vector3(26.118341, 8.028652, 15.586595), Vector3(27.609777, 8.755241, 15.459244), Vector3(31.378614, 10.87775, 15.196053), Vector3(36.889362, 10.72323, 14.3343115), Vector3(39.17482, 10.129914, 14.3343115), Vector3(40.812355, 5.6431684, 14.3343115), Vector3(48.37926, 5.6431684, 14.3343115), Vector3(56.389713, 9.105232, 14.3343115), Vector3(67.662674, 9.105232, 14.3343115), Vector3(78.6428, 9.105232, 14.3343115), Vector3(78.6428, 9.105232, 14.3343115), Vector3(78.6428, -9.858261, 14.3343115), Vector3(82.26411, -9.133255, 14.3343115), Vector3(81.5528, -6.1948123, 15.406889), Vector3(81.5528, -2.464822, 15.406889), Vector3(84.10626, -0.7420173, 15.406889), Vector3(84.10626, 2.8412461, 15.406889), Vector3(84.49208, 15.932915, 15.406889), Vector3(84.49208, 15.932915, 15.406889), Vector3(90.396805, -11.580625, 16.84818)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_ryguw"]
@@ -114,16 +115,16 @@ glow_enabled = true
 [sub_resource type="QuadMesh" id="QuadMesh_efxa6"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_dg77c"]
-render_priority = 0
+render_priority = -128
 shader = ExtResource("2_efxa6")
-shader_parameter/TwixelAngle = 45.0
-shader_parameter/PixelSize = 3.000000095
+shader_parameter/TwixelAngle = 4.3690002075275
+shader_parameter/PixelSize = 4.2450001541375
 shader_parameter/FogColor = Color(0, 0, 0, 1)
-shader_parameter/FogStart = 12.755
+shader_parameter/FogStart = 25.0
 shader_parameter/FogEnd = 300.0
 shader_parameter/Quantize = false
 
-[sub_resource type="BoxMesh" id="BoxMesh_074og"]
+[sub_resource type="BoxMesh" id="BoxMesh_getpj"]
 resource_local_to_scene = true
 size = Vector3(0.15, 0.15, 0.05)
 subdivide_depth = 20
@@ -140,7 +141,7 @@ script = ExtResource("1_5vw27")
 [node name="FloatyOrb" type="RigidBody3D" parent="." unique_id=1415488722]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.6050873, 0.8511534, -0.3968439)
 collision_layer = 4
-collision_mask = 196615
+collision_mask = 0
 freeze = true
 freeze_mode = 1
 script = ExtResource("18_074og")
@@ -156,6 +157,13 @@ mesh = SubResource("SphereMesh_82xsv")
 [node name="AnimationPlayer" type="AnimationPlayer" parent="FloatyOrb" unique_id=265747805]
 libraries/ = SubResource("AnimationLibrary_ryguw")
 
+[node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="FloatyOrb" unique_id=949565089]
+stream = ExtResource("4_82xsv")
+autoplay = true
+max_distance = 2.0
+max_polyphony = 5
+bus = &"SFX"
+
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=1205741067]
 transform = Transform3D(-0.8660254, -0.43301278, 0.25, 0, 0.49999997, 0.86602545, -0.50000006, 0.75, -0.43301266, 0, 0, 0)
 shadow_enabled = true
@@ -166,7 +174,7 @@ unique_name_in_owner = true
 environment = SubResource("Environment_efxa6")
 
 [node name="XROrigin3D" type="XROrigin3D" parent="." unique_id=2100343061]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.42443365, 0)
+transform = Transform3D(-0.008848834, 0, 0.99996084, 0, 1, 0, -0.99996084, 0, -0.008848834, -1.6819432, 0.9601097, 0)
 
 [node name="XRCamera3D" type="XRCamera3D" parent="XROrigin3D" unique_id=850054336 node_paths=PackedStringArray("start_text")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.005877495, 0, -0.00011789799)
@@ -225,9 +233,11 @@ text = "0/100 used"
 
 [node name="MovementGrapple" parent="XROrigin3D/XRController3D2" unique_id=976148406 instance=ExtResource("18_82xsv")]
 grapple_length = 35.0
+impulse_speed = 4.085
+winch_speed = 0.855
 
 [node name="Grapple_Target" parent="XROrigin3D/XRController3D2/MovementGrapple" index="1"]
-mesh = SubResource("BoxMesh_074og")
+mesh = SubResource("BoxMesh_getpj")
 
 [node name="Line" parent="XROrigin3D/XRController3D2/MovementGrapple/LineHelper" index="0"]
 transform = Transform3D(1.91069e-15, 4.37114e-08, 1, 1, -4.37114e-08, 0, 4.37114e-08, 1, -4.37114e-08, 0, 0, -1.0094817)
@@ -263,7 +273,7 @@ player_body = NodePath("../XROrigin3D/PlayerBody")
 animation = NodePath("../FloatyOrb/AnimationPlayer")
 
 [node name="grapple point" type="StaticBody3D" parent="." unique_id=943915966 groups=["grapple_points"]]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.32659006, 2.3536928, -4.7105417)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -24.883688, 7.040888, -1.2016649)
 collision_layer = 16
 collision_mask = 0
 
@@ -275,7 +285,7 @@ mesh = SubResource("BoxMesh_2cqfq")
 
 [node name="Level holder" type="Node" parent="." unique_id=1371839531 groups=["Level 1 - rooftops"]]
 
-[node name="rooftops_main" parent="Level holder" unique_id=302516591 instance=ExtResource("18_cegan")]
+[node name="tutorial" parent="Level holder" unique_id=707345943 instance=ExtResource("20_82xsv")]
 
 [connection signal="xr_initialized" from="." to="XROrigin3D/XRCamera3D" method="_on_xr_initialized"]
 [connection signal="grabbed" from="FloatyOrb" to="GameMananger" method="_on_pickable_object_grabbed"]

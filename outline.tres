@@ -1,0 +1,11 @@
+[gd_resource type="StandardMaterial3D" format=3 uid="uid://uoe4rnclutat"]
+
+[resource]
+render_priority = 127
+transparency = 4
+no_depth_test = true
+albedo_color = Color(0.88, 0.57904, 0.5456, 0.41568628)
+stencil_flags = 2
+stencil_reference = 10
+stencil_color = Color(1, 1, 1, 1)
+stencil_outline_thickness = 1.0

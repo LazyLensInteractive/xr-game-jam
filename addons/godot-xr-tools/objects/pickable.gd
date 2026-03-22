@@ -205,14 +205,13 @@ func controller_action_release(controller : XRController3D):
 		_grab_driver.primary and _grab_driver.primary.point
 		and _grab_driver.primary.controller == controller
 	):
-		_grab_driver.primary.point.action_release(self)
+		_grab_driver.primary.point.action(self)
 
 	if (
 		_grab_driver.secondary and _grab_driver.secondary.point
 		and _grab_driver.secondary.controller == controller
 	):
-		_grab_driver.secondary.point.action_release(self)
-
+		_grab_driver.secondary.point.action(self)
 
 ## This method requests highlighting of the [XRToolsPickable].
 ## If [param from] is null then all highlighting requests are cleared,

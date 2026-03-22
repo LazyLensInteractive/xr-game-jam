@@ -1,0 +1,32 @@
+[gd_scene format=3 uid="uid://cym1bp6kc14oy"]
+
+[ext_resource type="Material" uid="uid://d2n1npnj7u2vg" path="res://present.tres" id="1_n735c"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_egc6y"]
+material = ExtResource("1_n735c")
+size = Vector3(11.275, 0.54, 11.705)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_lt2ag"]
+size = Vector3(11.275, 0.54, 11.705)
+
+[sub_resource type="TextMesh" id="TextMesh_75yvt"]
+text = "Thanks for playing! 
+feel free to check out the source on github!
+ to teach me how to do things better 
+or look at stuff that was in progress
+and cut because scope creep"
+
+[node name="end" type="Node3D" unique_id=691043067]
+
+[node name="StaticBody3D" type="StaticBody3D" parent="." unique_id=856453773]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="StaticBody3D" unique_id=1929964530]
+material_override = ExtResource("1_n735c")
+mesh = SubResource("BoxMesh_egc6y")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D" unique_id=821861446]
+shape = SubResource("BoxShape3D_lt2ag")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="StaticBody3D" unique_id=2123940089]
+transform = Transform3D(-0.004258544, 0, 0.99999094, 0, 1, 0, -0.99999094, 0, -0.004258544, -1.5785577, 0.9552195, 0)
+mesh = SubResource("TextMesh_75yvt")

@@ -29,7 +29,6 @@ enabled=PackedStringArray("res://addons/godot-xr-tools/plugin.cfg")
 
 past_world=""
 present_world=""
-grapple_points=""
 "Level 1 - rooftops"=""
 "idk work man"="scene change????"
 puzzle_ball="used for detecting when puzzle balls are in the place they need to be"
